@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+/* src/Footer.css */
+.footer {
+  background-color: #1d3356;
+  color: white;
+  padding: 20px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer-section {
+  margin-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer-section h4 {
+  color: #00c2ff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section .social-icons {
+  margin-top: 10px;
+}
+
+.footer-section .social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5em;
+}
+
+.footer-section .app-button,
+.footer-section .pro-button {
+  background-color: white;
+  color: #1d3356;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.footer-section .app-button:hover,
+.footer-section .pro-button:hover {
+  background-color: #00c2ff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  width: 150px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.border-right {
+  border-right: 1px solid #fff;
+}
+
+.last-section {
+  padding-left: 20px;
+}
+
+@media (max-width: 767px) {
+  .border-right {
+      border-right: none;
+      border-bottom: 1px solid #fff;
   }
-  to {
-    transform: rotate(360deg);
+  .last-section {
+      border-bottom: none;
+      padding-left: 0;
   }
 }
