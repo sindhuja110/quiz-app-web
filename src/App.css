@@ -2,13 +2,13 @@
 .footer {
   background-color: #1d3356;
   color: white;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .footer-section {
   margin-bottom: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .footer-section h4 {
@@ -31,12 +31,19 @@
 
 .footer-section .social-icons {
   margin-top: 10px;
+  
 }
 
 .footer-section .social-icons a {
   color: white;
   margin: 0 10px;
   font-size: 1.5em;
+  
+}
+.footer-section .social-icons a :hover {
+  color: #00c2ff ;
+  transform: scale(1.2); /* Increase size on hover */
+  transition: all 0.3s ease; /* Add smooth transition effect */
 }
 
 .footer-section .app-button,
@@ -60,7 +67,8 @@
 }
 
 .border-right {
-  border-right: 1px solid #fff;
+  border-right: 2px solid #fff;
+  margin: 10px;
 }
 
 .last-section {
