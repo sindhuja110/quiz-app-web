@@ -1,12 +1,153 @@
+
+/* mainpage.css */
+
+.main-content {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.main-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.buttons .btn {
+  width: 100%;
+  max-width: 300px;
+}
+
+.disclaimer {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.promo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .buttons {
+    flex-direction: row;
+  }
+}
+
+/* header.css */
+
+.app-bar-header {
+  width: 100%;
+  background-color: #1d3356;
+  margin-bottom: 56px; /* Adjust based on navbar height */
+}
+
+.navbar-custom {
+  background-color: #1d3356;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: white !important;
+}
+
+.navbar-custom .nav-link {
+  margin-left: 0.5rem;
+}
+
+.navbar-custom .navbar-toggler {
+  border-color: white;
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%281, 1, 1, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-custom .download-link .btn {
+  color: white;
+  border-color: white;
+}
+
+
+@media (max-width: 768px) {
+  .navbar-custom .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-custom .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .promo-bar {
+    font-size: 0.9rem;
+  }
+}
+
+/* content.css */
+
+.content-section {
+  padding: 50px 15px;
+}
+
+.content-title {
+  color: #f56a00;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.content-text {
+  font-size: 18px;
+  color: #4d4d4d;
+  margin-bottom: 30px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .content-section {
+    text-align: center;
+  }
+}
+/*faq.css*/
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.faq-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
 /* src/Footer.css */
 .footer {
   background-color: #1d3356;
   color: white;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .footer-section {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   padding-right: 10px;
   padding-left: 10px;
 }

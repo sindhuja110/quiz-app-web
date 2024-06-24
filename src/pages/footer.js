@@ -5,9 +5,9 @@ import logoimage from '../Assets/companylogo.png';
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer className="footer d-flex flex-row justfy-content-between">
             <Container>
-                <Row>
+                <Row className='d-flex flex-row justfy-content-center align-items-center'>
                     <Col md={3} className="footer-section border-right text-center">
                         <img src={logoimage} alt="Driftmark Logo" className="logo" />
                         <p><strong>Driftmark Technology</strong></p>
@@ -16,16 +16,16 @@ const Footer = () => {
                     <Col md={2} className="footer-section border-right ">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="#about">about us</a></li>
-                            <li><a href="#privacy">privacy policy</a></li>
-                            <li><a href="#terms">terms & conditions of service</a></li>
+                            <li><a href="https://driftmarktechnology.com/about" target='blank'>about us</a></li>
+                            <li><a href="https://driftmarktechnology.com/privacy-policy" target='blank'>privacy policy</a></li>
+                            <li><a href="https://driftmarktechnology.com/terms" target='blank'>terms & conditions</a></li>
                         </ul>
                     </Col>
                     <Col md={2} className="footer-section border-right">
                         <h4>Resources</h4>
                         <ul>
                             <li><a href="#support">support</a></li>
-                            <li><a href="#pilots">pilots</a></li>
+                            <li><a href="#pilots">FAQ</a></li>
                             <li><a href="#resellers">resellers</a></li>
                         </ul>
                     </Col>
@@ -36,9 +36,8 @@ const Footer = () => {
                             <li><a href="#feature">request a feature</a></li>
                         </ul>
                         <div className="social-icons">
-                            <a href="https://twitter.com"><i className="fab fa-whatsapp outline-light"></i></a>
-                            <a href="https://facebook.com"><i className="fas fa-phone-alt outline-light"></i></a>
-                            <a href="https://youtube.com"><i className="fas fa-envelope outline-light"></i></a>
+                            <a href="https://api.whatsapp.com/send/?phone=916381475573&text&type=phone_number&app_absent=0" target='blank'><i className="fab fa-whatsapp outline-light"></i></a>
+                            <a href="mailto:driftmarktechnology@gmail.com"><i className="fas fa-envelope outline-light"></i></a>
                         </div>
                     </Col>
                     <Col md={2} className="footer-section last-section">

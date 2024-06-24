@@ -3,6 +3,10 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Footer from "./pages/footer";
 import Kidslearn from "./pages/kidsLear";
+import AppBarHeader from "./pages/header";
+import MainContent from "./pages/maincontent";
+import Content from "./pages/content";
+import FaqComponent from "./pages/faqPage";
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
         }}
       >
         <Row>
+          <AppBarHeader />
+          <MainContent />
+          <Content />
+          {/* <FaqComponent /> */}
           <Kidslearn />
           <Footer />
 
