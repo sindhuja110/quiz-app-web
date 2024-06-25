@@ -1,8 +1,6 @@
 import React from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import { FaDownload } from 'react-icons/fa';  // Import download icon
-import logo from '../Assets/companylogo.png';  // Import your logo
-
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import logo from '../../Assets/companylogo.png';  // Import your logo
 
 const AppBarHeader = () => {
   return (
@@ -12,24 +10,21 @@ const AppBarHeader = () => {
           <Navbar.Brand href="#home" className="d-flex align-items-center">
             <img
               src={logo}
-              width="30"
-              height="30"
+              width="50"
+              height="50"
               className="d-inline-block align-top"
-              alt="Khan Academy Kids logo"
+              alt="Driftmark Technology logo"
             />
-            <span className="ml-2">Khan Academy Kids</span>
+            <span className="ml-0">Driftmark Technology</span>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-            <Nav>
-              <Nav.Link href="#donate">Donate</Nav.Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+            <Nav className="ml-auto">
+              <Nav.Link href="#AboutUs">About Us</Nav.Link>
               <Nav.Link href="#help">Help</Nav.Link>
               <Nav.Link href="#contact">Contact</Nav.Link>
               <Nav.Link href="https://play.google.com" className="download-link">
-                <Button variant="outline-light">
-                  <FaDownload /> Download the App
-                </Button>
-              </Nav.Link>
+                </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

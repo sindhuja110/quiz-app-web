@@ -1,10 +1,12 @@
 import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
-import learnimages from '../Assets/mainimage.jpg'
+import { Row, Col, Button, Container } from 'react-bootstrap';
+import learnimages from '../../Assets/companylogo.png'
 
 function Content() {
   return (
-    <Row className="content-section">
+    <div>
+      <Container>   
+        <Row className="content-section">
       <Col md={6} className='text-center'>
         <h1 className="content-title">Quiz and Grade at the Speed of Learning</h1>
         <p className="content-text">
@@ -17,6 +19,9 @@ function Content() {
         <img src={learnimages} alt="Illustration" className="img-fluid" />
       </Col>
     </Row>
+    </Container>
+
+    </div>
   );
 }
 

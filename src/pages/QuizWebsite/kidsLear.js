@@ -1,13 +1,12 @@
 import React from "react";
-import Maths from "../Assets/Maths.webp";
-import Phonsonic from "../Assets/Phonesonic.svg";
-import Voculbulary from "../Assets/Vocubulary.svg";
-import Sightword from "../Assets/Sightwords.svg";
+import Birds from "../../Assets/Maths.webp";
+import Animals from "../../Assets/Maths.webp";
+import Sounds from "../../Assets/Maths.webp";
 import { Col, Container, Row } from "react-bootstrap";
 
 const Kidslearn = () => {
   return (
-    <>
+    <div className="header">
       <Container className="mt-4 mb-4 d-flex justify-content-center">
         <Col xs={12} md={12} sm={12} className="mt-5">
           <div
@@ -23,7 +22,7 @@ const Kidslearn = () => {
           >
             <h1>What Kids Will Learn</h1>
             <Row className="mt-5">
-              <Col lg={3} className="mb-4">
+              <Col lg={4} className="mb-4">
                 <div
                   style={{
                     backgroundColor: "white",
@@ -37,11 +36,11 @@ const Kidslearn = () => {
                     margin: "0 auto",
                   }}
                 >
-                  <img src={Maths} alt="Maths" style={{ width: '60%' }} />
+                  <img src={Birds} alt="Birds" style={{ width: '60%' }} />
                 </div>
-                <p className="mt-3">Logical Thinking</p>
+                <p className="mt-3">Sounds of Animals & Birds</p>
               </Col>
-              <Col lg={3} className="mb-4">
+              <Col lg={4} className="mb-4">
                 <div
                   style={{
                     backgroundColor: "white",
@@ -55,11 +54,11 @@ const Kidslearn = () => {
                     margin: "0 auto",
                   }}
                 >
-                  <img src={Phonsonic} alt="Phonsonic" style={{ width: '60%' }} />
+                  <img src={Animals} alt="Animals" style={{ width: '60%' }} />
                 </div>
-                <p className="mt-3">Phonetics</p>
+                <p className="mt-3">Vision of Animals & Birds</p>
               </Col>
-              <Col lg={3} className="mb-4">
+              <Col lg={4} className="mb-4">
                 <div
                   style={{
                     backgroundColor: "white",
@@ -73,33 +72,15 @@ const Kidslearn = () => {
                     margin: "0 auto",
                   }}
                 >
-                  <img src={Voculbulary} alt="Vocabulary" style={{ width: '60%' }} />
+                  <img src={Sounds} alt="Sounds" style={{ width: '60%' }} />
                 </div>
-                <p className="mt-3">Vocabulary</p>
+                <p className="mt-3">Math</p>
               </Col>
-              <Col lg={3} className="mb-4">
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    width: "150px",
-                    height: "150px",
-                    borderRadius: "75px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                    margin: "0 auto",
-                  }}
-                >
-                  <img src={Sightword} alt="Sight Words" style={{ width: '60%' }} />
-                </div>
-                <p className="mt-3">Sight Words</p>
-              </Col>
-            </Row>
+              </Row>
           </div>
         </Col>
       </Container>
-    </>
+    </div>
   );
 };
 

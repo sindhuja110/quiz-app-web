@@ -1,12 +1,13 @@
 import "./App.css";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Footer from "./pages/footer";
-import Kidslearn from "./pages/kidsLear";
-import AppBarHeader from "./pages/header";
-import MainContent from "./pages/maincontent";
-import Content from "./pages/content";
-import FaqComponent from "./pages/faqPage";
+import Footer from "./pages/QuizWebsite/footer";
+import Kidslearn from "./pages/QuizWebsite/kidsLear";
+import AppBarHeader from "./pages/QuizWebsite/header";
+import MainContent from "./pages/QuizWebsite/maincontent";
+import Content from "./pages/QuizWebsite/content";
+import FaqComponent from "./pages/QuizWebsite/faqPage";
+import WhyChooseOurs from "./pages/QuizWebsite/ChooseOurs";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Row>
           <AppBarHeader />
           <MainContent />
+          <WhyChooseOurs/>
           <Content />
           {/* <FaqComponent /> */}
           <Kidslearn />
