@@ -5,62 +5,63 @@ import { FaPlus, FaMinus } from 'react-icons/fa';
 const questions = [
   {
     id: 0,
-    title: 'What is the purpose of this betting app?',
+    title: 'What can you do with our quiz app?',
     answer:
-      'Our app allows users to place bets on various sports games, play sports games, and earn referral rewards by inviting friends to join the platform. Users can also challenge others by posting a match request.',
+      'Our quiz app allows kids to take interactive quizzes on various subjects such as vision, sounds, and math. They can improve their knowledge and have fun while learning.',
   },
   {
     id: 1,
-    title: 'How do I place a bet on a sports game?',
+    title: 'How often can you take mock tests in our app?',
     answer:
-      'To place a bet, select the sports game you’re interested in, choose your bet type, enter the amount you wish to bet, and confirm your bet. You can track your bets and results in your account dashboard.',
+      'Mock tests are available daily in our app, allowing kids to practice and test their knowledge regularly.',
   },
   {
     id: 2,
-    title: 'How to contact "Meet In Ground"?',
-    answer: (
-      <div>
-        Our committed team is available to assist you during daytime hours,
-        ensuring personalized support and attention. English-speaking
-        assistance is available 24/7.
-        <br />
-        <br />
-        Email: <a href="mailto:meetinground@gmail.com">info@meetinground</a>
-        <br />
-        Phone:{' '}
-        <a href="https://wa.me/+916381475573">+91 6381475573</a>
-      </div>
-    ),
+    title: 'What subjects are covered in our quiz app?',
+    answer:
+      'Our quiz app covers subjects like vision (colors, shapes), sounds (animal sounds, musical instruments), and math (basic arithmetic, patterns).',
   },
   {
     id: 3,
-    title: 'What are referral rewards, and how can I earn them?',
+    title: 'How do you earn coins in our app?',
     answer:
-      'Referral rewards are bonuses you receive for inviting friends to join the app. When your referred friend signs up and makes their first bet, you’ll receive a referral bonus credited to your account.',
+      'Kids earn coins by performing well in tests. Higher scores and faster completion times can earn more coins. Coins are also rewarded for participating in main tests.',
   },
   {
     id: 4,
-    title: 'How do I post a bet match request?',
+    title: 'What is the purpose of the main test in our app?',
     answer:
-      'To post a bet match request, navigate to the Post a Match section, fill in the match details, set the terms, and submit your request. Other users can then see your request and challenge you to play.',
+      'The main test in our app is a more challenging assessment that allows kids to showcase their knowledge and compete for higher coin rewards and leaderboard positions.',
   },
   {
     id: 5,
-    title: 'How can I accept a bet match request?',
+    title: 'How does the leaderboard work in our app?',
     answer:
-      'To accept a match request, go to the Match Request’s section, find a match that interests you, and click on ‘Accept Request’. Both parties will be notified, and you can proceed to play the match according to the agreed terms.',
+      'The leaderboard ranks users based on the total number of coins they have earned. It displays usernames or initials along with their position, motivating kids to earn more coins and improve their ranking.',
   },
   {
     id: 6,
-    title: 'How do I play a sports game on the app?',
+    title: 'What age group is our quiz app designed for?',
     answer:
-      'Once you’ve accepted a match request or created one, follow the instructions provided in the app to play the game. The specifics will vary depending on the sport and game format. Ensure you adhere to the rules and guidelines provided.',
+      'Our quiz app is designed for kids in elementary and middle school age groups, typically ranging from 6 to 12 years old.',
   },
   {
     id: 7,
-    title: 'Is my personal and financial information safe on this app?',
+    title: 'How do you access the FAQ section in our app?',
     answer:
-      'Yes, your security is our top priority. We use advanced encryption technology to protect your personal and financial information. Additionally, our app complies with industry-standard regulations to ensure your data is safe and secure.',
+      'The FAQ section can be accessed from the main menu of the app. It provides answers to common questions about using the app, earning coins, and understanding the leaderboard.',
+  },
+  {
+    id: 8,
+    title: 'What feedback options are available in our app?',
+    answer:
+      'Our app includes feedback options where users can provide suggestions or report issues. This helps us improve the app based on user input.',
+  },
+  {
+    id: 9,
+    title: 'How do you navigate between different sections in our app?',
+    answer:
+      'Navigation between sections in our app is intuitive. Users can use a menu or tabs to switch between mock tests, main tests, leaderboard, user account details, and the FAQ section.',
   },
 ];
 
