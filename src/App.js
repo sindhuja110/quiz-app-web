@@ -6,8 +6,9 @@ import Kidslearn from "./pages/QuizWebsite/kidsLear";
 import AppBarHeader from "./pages/QuizWebsite/header";
 import MainContent from "./pages/QuizWebsite/maincontent";
 import Content from "./pages/QuizWebsite/content";
-import FaqComponent from "./pages/QuizWebsite/faqPage";
 import WhyChooseOurs from "./pages/QuizWebsite/ChooseOurs";
+import AboutUs from "./pages/QuizWebsite/aboutUs";
+import FAQ from "./pages/QuizWebsite/faqPage";
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
           <MainContent />
           <WhyChooseOurs/>
           <Content />
-          {/* <FaqComponent /> */}
+          <AboutUs/>
           <Kidslearn />
+          <FAQ/>
           <Footer />
 
           <Col lg={12} xxl={12} xl={12} xs={12}></Col>
