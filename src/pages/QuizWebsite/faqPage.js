@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaPlus, FaMinus } from 'react-icons/fa';
+import Footer from "./footer";
+import Header from "./header";
+
 
 const questions = [
   {
@@ -76,6 +79,7 @@ const Faq = () => {
 
   return (
     <div>
+      <Header />
       <Container className=" mb-4 mt-4">
         <Row>
           <Col xs={12} md={12} className="mt-5">
@@ -131,6 +135,7 @@ const Faq = () => {
           ))}
         </div>
       </Container>
+      <Footer />
     </div>
   );
 };

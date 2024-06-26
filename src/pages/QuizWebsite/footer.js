@@ -25,7 +25,7 @@ const Footer = () => {
                         <h4>Resources</h4>
                         <ul>
                             <li><a href="#support">support</a></li>
-                            <li><a href="#pilots">FAQ</a></li>
+                            <li><a href="/faq">FAQ</a></li>
                             <li><a href="#resellers">resellers</a></li>
                         </ul>
                     </Col>
