@@ -1,3 +1,6 @@
+* {
+  font-family: "Comic Sans MS", "cursive", sans-serif;
+}
 
 /* mainpage.css */
 
@@ -78,7 +81,6 @@
   color: white;
   border-color: white;
 }
-
 
 @media (max-width: 768px) {
   .navbar-custom .navbar-brand {
@@ -172,17 +174,15 @@
 
 .footer-section .social-icons {
   margin-top: 10px;
-  
 }
 
 .footer-section .social-icons a {
   color: white;
   margin: 0 10px;
   font-size: 1.5em;
-  
 }
 .footer-section .social-icons a :hover {
-  color: #00c2ff ;
+  color: #00c2ff;
   transform: scale(1.2); /* Increase size on hover */
   transition: all 0.3s ease; /* Add smooth transition effect */
 }
@@ -218,11 +218,11 @@
 
 @media (max-width: 767px) {
   .border-right {
-      border-right: none;
-      border-bottom: 1px solid #fff;
+    border-right: none;
+    border-bottom: 1px solid #fff;
   }
   .last-section {
-      border-bottom: none;
-      padding-left: 0;
+    border-bottom: none;
+    padding-left: 0;
   }
 }
