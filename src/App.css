@@ -2,6 +2,32 @@
   font-family: "Comic Sans MS", "cursive", sans-serif;
 }
 
+/* navbar.css */
+
+.navbar-custom {
+  height: 60px; /* Adjust the height as needed */
+  padding-top: 0; /* Remove top padding */
+  padding-bottom: 0; /* Remove bottom padding */
+}
+
+.navbar-custom .navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-custom .navbar-brand img {
+  height: 40px; /* Adjust the logo height if needed */
+}
+
+.navbar-custom .navbar-collapse {
+  height: 100%;
+}
+
+.navbar-custom .nav-link {
+  line-height: 60px; /* Match the height of the navbar */
+}
+
 /* mainpage.css */
 
 .main-content {
