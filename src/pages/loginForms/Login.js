@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Formik } from "formik";
 import { LogAndRegSchema } from "./LoginValidation";
-import TextInput from "../../Components/TextInput";
+import TextInput from "../../../src/components/TextInput";
 import { useLoginUserMutation } from "../../redux/features/api/AuthApi";
 import { toast } from "react-toastify";
-import BasicButton from "../../Components/BasicButton";
+import BasicButton from "../../../src/components/BasicButton";
 import login from "../../assets/images/loginlogo2.webp";
 
 const Login = () => {

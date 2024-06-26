@@ -4,13 +4,11 @@ import { Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { TrainSchema } from "../../pages/Train/TrainValidation";
-import BasicButton from "../../Components/BasicButton";
-import TextInput from "../../Components/TextInput";
+import BasicButton from "../../../src/components/BasicButton";
+import TextInput from "../../../src/components/TextInput";
 
-import { useAddTrainMutation } from "../../redux/features/api/TrainApi"
+import { useAddTrainMutation } from "../../redux/features/api/TrainApi";
 import { toast } from "react-toastify";
-
-
 
 const AddTrain = () => {
   const [TrainNo, setTrainNo] = useState("");
@@ -20,18 +18,13 @@ const AddTrain = () => {
   const [kannadaTrainName, setkannadaTrainName] = useState("");
   const [hindiTrainName, setHindiTrainName] = useState("");
 
-
-  
-  const [TrainAddData,{isLoading}]=useAddTrainMutation();
-  
- 
+  const [TrainAddData, { isLoading }] = useAddTrainMutation();
 
   const navigate = useNavigate();
   const handleCancel = () => {
     navigate("/admin/train");
   };
 
- 
   const initialValues = {
     TrainNo: "",
     TrainName: "",
@@ -39,25 +32,18 @@ const AddTrain = () => {
     teluguTrainName: "",
     kannadaTrainName: "",
     hindiTrainName: "",
-   
-    
   };
   const handleAddData = async () => {
     try {
-      const response = await TrainAddData ({
+      const response = await TrainAddData({
         TrainNo: TrainNo,
         TrainName: TrainName,
-        tamilTrainName:tamilTrainName,
+        tamilTrainName: tamilTrainName,
         teluguTrainName: teluguTrainName,
         kannadaTrainName: kannadaTrainName,
-        hindiTrainName:hindiTrainName,
-       
-     
-      
-        
+        hindiTrainName: hindiTrainName,
       });
-    
-   
+
       if (response?.data) {
         setTrainNo("");
         setTrainName("");
@@ -65,13 +51,11 @@ const AddTrain = () => {
         setTeluguTrainName("");
         setkannadaTrainName("");
         setHindiTrainName("");
-      
-      
+
         navigate("/admin/train");
         toast.success(response?.data?.message, { autoClose: 1000 });
         setTimeout(() => navigate("/admin/train"), 3000);
         console.log(response.error.data);
-       
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         console.log("else part");
@@ -79,10 +63,8 @@ const AddTrain = () => {
       }
     } catch (error) {
       console.error(error);
-   
     }
   };
-
 
   return (
     <div>
@@ -123,42 +105,31 @@ const AddTrain = () => {
                       type="button"
                       isLoading={isLoading}
                       loaderVariant="info"
-                     disabled={isSubmitting}
+                      disabled={isSubmitting}
                       onClick={
-                        (TrainNo=== '')||
-                        TrainName === ''||
-                        (tamilTrainName=== '')||
-                        teluguTrainName === ''||
-                        (kannadaTrainName=== '')||
-                        hindiTrainName === ''||
-
-                          (touched.TrainNo && errors.TrainNo) ||
+                        TrainNo === "" ||
+                        TrainName === "" ||
+                        tamilTrainName === "" ||
+                        teluguTrainName === "" ||
+                        kannadaTrainName === "" ||
+                        hindiTrainName === "" ||
+                        (touched.TrainNo && errors.TrainNo) ||
                         (touched.TrainName && errors.TrainName) ||
                         (touched.tamilTrainName && errors.tamilTrainName) ||
-                        (touched.teluguTrainName && errors.teluguTrainName) || 
+                        (touched.teluguTrainName && errors.teluguTrainName) ||
                         (touched.kannadaTrainName && errors.kannadaTrainName) ||
-                        (touched.hindiTrainName && errors.hindiTrainName) 
-                        
-                       
+                        (touched.hindiTrainName && errors.hindiTrainName)
                           ? handleSubmit
                           : handleAddData
-                      }  />
+                      }
+                    />
                   </Col>
                 </Row>
                 <Row className="d-flex flex-wrap flex-lg-row flex-xxl-row flex-xl-row flex-column flex-md-column flex-sm-column  mt-4">
                   <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
-                  <h4 className="mb-4">English:</h4>
-                
-                   
-                    
-                    <Col
-                      className="m-2"
-                      lg="6"
-                      xxl="6"
-                      xl="12"
-                      md="12"
-                      sm="12"
-                    >
+                    <h4 className="mb-4">English:</h4>
+
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="Train No"
                         type=""
@@ -167,7 +138,7 @@ const AddTrain = () => {
                           touched.TrainNo && errors.TrainNo ? "is-invalid" : ""
                         }`}
                         onChange={(e) => {
-                            setTrainNo(e.target.value);
+                          setTrainNo(e.target.value);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
@@ -180,25 +151,19 @@ const AddTrain = () => {
                         }
                       />
                     </Col>
-                
 
-                    <Col
-                      className="m-2"
-                      lg="6"
-                      xxl="6"
-                      xl="12"
-                      md="12"
-                      sm="12"
-                    >
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="Train Name"
                         type=""
                         name="TrainName"
                         className={`form-control ${
-                          touched.TrainName && errors.TrainName ? "is-invalid" : ""
+                          touched.TrainName && errors.TrainName
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
-                            setTrainName(e.target.value);
+                          setTrainName(e.target.value);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
@@ -211,206 +176,137 @@ const AddTrain = () => {
                         }
                       />
                     </Col>
-                
+                  </Col>
 
+                  <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
+                    <h4 className="mb-4">Tamil:</h4>
 
-                 
-
-                 
-                    </Col>
-
-
-                    <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
-                  <h4 className="mb-4">Tamil:</h4>
-                
-                   
-                    
-                 
-                    <Col
-                      className="m-2"
-                      lg="6"
-                      xxl="6"
-                      xl="12"
-                      md="12"
-                      sm="12"
-                    >
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="ரயில் பெயர்"
                         type=""
                         name="tamilTrainName"
                         className={`form-control ${
-                          touched.tamilTrainName && errors.tamilTrainName ? "is-invalid" : ""
+                          touched.tamilTrainName && errors.tamilTrainName
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
-                            setTamilTrainName(e.target.value);
+                          setTamilTrainName(e.target.value);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
                         validation={
                           touched.tamilTrainName && errors.tamilTrainName ? (
-                            <p className="text-danger">{errors.tamilTrainName}</p>
+                            <p className="text-danger">
+                              {errors.tamilTrainName}
+                            </p>
                           ) : (
                             ""
                           )
                         }
                       />
                     </Col>
-                
-
-
-                 
-
-                 
-                    </Col>
+                  </Col>
                 </Row>
 
-
-
-
-
-
-
-
-
-
                 <Row className="d-flex flex-wrap flex-lg-row flex-xxl-row flex-xl-row flex-column flex-md-column flex-sm-column  mt-4">
-                <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
-                  <h4 className="mb-4">Hindi:</h4>
-                
-                   
-                 
-                    <Col
-                      className="m-2"
-                      lg="6"
-                      xxl="6"
-                      xl="12"
-                      md="12"
-                      sm="12"
-                    >
+                  <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
+                    <h4 className="mb-4">Hindi:</h4>
+
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="ट्रेन का नाम"
                         type=""
                         name="hindiTrainName"
                         className={`form-control ${
-                          touched.hindiTrainName && errors.hindiTrainName ? "is-invalid" : ""
+                          touched.hindiTrainName && errors.hindiTrainName
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
-                            setHindiTrainName(e.target.value);
+                          setHindiTrainName(e.target.value);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
                         validation={
                           touched.hindiTrainName && errors.hindiTrainName ? (
-                            <p className="text-danger">{errors.hindiTrainName}</p>
+                            <p className="text-danger">
+                              {errors.hindiTrainName}
+                            </p>
                           ) : (
                             ""
                           )
                         }
                       />
                     </Col>
-                
+                  </Col>
 
-                 
+                  <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
+                    <h4 className="mb-4">Telugu:</h4>
 
-                 
-                    </Col>
-
-                    <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
-                  <h4 className="mb-4">Telugu:</h4>
-                
-                   
-                    
-                   
-                    <Col
-                      className="m-2"
-                      lg="6"
-                      xxl="6"
-                      xl="12"
-                      md="12"
-                      sm="12"
-                    >
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="రైలు పేరు"
                         type=""
                         name="teluguTrainName"
                         className={`form-control ${
-                          touched.teluguTrainName && errors.teluguTrainName ? "is-invalid" : ""
+                          touched.teluguTrainName && errors.teluguTrainName
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
-                            setTeluguTrainName(e.target.value);
+                          setTeluguTrainName(e.target.value);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
                         validation={
                           touched.teluguTrainName && errors.teluguTrainName ? (
-                            <p className="text-danger">{errors.teluguTrainName}</p>
+                            <p className="text-danger">
+                              {errors.teluguTrainName}
+                            </p>
                           ) : (
                             ""
                           )
                         }
                       />
                     </Col>
-                
-
-
-                 
-
-                 
-                    </Col>
+                  </Col>
                 </Row>
-
-
-
-
-
-
 
                 <Row className="d-flex flex-wrap flex-lg-row flex-xxl-row flex-xl-row flex-column flex-md-column flex-sm-column  mt-4">
                   <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
-                  <h4 className="mb-4">Kannada:</h4>
-                
-                   
-                    
-                   
-                    <Col
-                      className="m-2"
-                      lg="6"
-                      xxl="6"
-                      xl="12"
-                      md="12"
-                      sm="12"
-                    >
+                    <h4 className="mb-4">Kannada:</h4>
+
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="ರೈಲು ಹೆಸರು"
                         type=""
                         name="kannadaTrainName"
                         className={`form-control ${
-                          touched.kannadaTrainName && errors.kannadaTrainName ? "is-invalid" : ""
+                          touched.kannadaTrainName && errors.kannadaTrainName
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
-                            setkannadaTrainName(e.target.value);
+                          setkannadaTrainName(e.target.value);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
                         validation={
-                          touched.kannadaTrainName && errors.kannadaTrainName ? (
-                            <p className="text-danger">{errors.kannadaTrainName}</p>
+                          touched.kannadaTrainName &&
+                          errors.kannadaTrainName ? (
+                            <p className="text-danger">
+                              {errors.kannadaTrainName}
+                            </p>
                           ) : (
                             ""
                           )
                         }
                       />
                     </Col>
-                
-
-
-                 
-
-                 
-                    </Col>
-
-
-                               </Row>
+                  </Col>
+                </Row>
                 <Row className="d-sm-flex d-flex d-md-flex d-lg-none d-xxl-none d-xl-none flex-row justify-content-between align-items-center mt-3">
                   <Col className="d-flex justify-content-start align-items-center">
                     <BasicButton
@@ -429,20 +325,18 @@ const AddTrain = () => {
                       loaderVariant="info"
                       disabled={isSubmitting}
                       onClick={
-                        (TrainNo=== '')||
-                        TrainName === ''||
-                        (tamilTrainName=== '')||
-                        teluguTrainName === ''||
-                        (kannadaTrainName=== '')||
-                        hindiTrainName === ''||
-
-                          (touched.TrainNo && errors.TrainNo) ||
+                        TrainNo === "" ||
+                        TrainName === "" ||
+                        tamilTrainName === "" ||
+                        teluguTrainName === "" ||
+                        kannadaTrainName === "" ||
+                        hindiTrainName === "" ||
+                        (touched.TrainNo && errors.TrainNo) ||
                         (touched.TrainName && errors.TrainName) ||
                         (touched.tamilTrainName && errors.tamilTrainName) ||
-                        (touched.teluguTrainName && errors.teluguTrainName) || 
+                        (touched.teluguTrainName && errors.teluguTrainName) ||
                         (touched.kannadaTrainName && errors.kannadaTrainName) ||
-                        (touched.hindiTrainName && errors.hindiTrainName) 
-                       
+                        (touched.hindiTrainName && errors.hindiTrainName)
                           ? handleSubmit
                           : handleAddData
                       }

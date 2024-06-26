@@ -3,15 +3,15 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import BasicTable from "../../Components/TablePaginationComponent";
-import Header from "../../Components/Header";
+import BasicTable from "../../../src/components/TablePaginationComponent";
+import Header from "../../../src/components/Header";
 import {
   useDeleteMetroTrainMutation,
   useGetChennaiMetroSearchQuery,
 } from "../../redux/features/api/MetroTrainApi";
 import { toast } from "react-toastify";
 import Loader from "../../pages/loginForms/loader/Loader";
-import DeleteModel from "../../Components/DeleteModel";
+import DeleteModel from "../../../src/components/DeleteModel";
 import Select from "react-select";
 import { BsSearch, BsX } from "react-icons/bs";
 
@@ -47,9 +47,8 @@ const Train = () => {
       setStartIndex(getMetroTrainData.pagination.startIndex);
       setCurrentPage(currentPage);
       setTotalItem(getMetroTrainData.pagination.totalItems);
-      setEndIndex(getMetroTrainData.pagination.endIndex)
+      setEndIndex(getMetroTrainData.pagination.endIndex);
       setTotalPages(getMetroTrainData.pagination.totalPages);
-
     }
   }, [getMetroTrainData, currentPage]);
 
@@ -194,12 +193,12 @@ const Train = () => {
         <Container fluid className="mt-3">
           <Row className="boxShadow p-4 mb-4">
             <Col>
-            <Header
-              ONCLICK={handleNavigateAddForm}
-              HEADING="Metro Trains"
-              BUTTON_NAME="Add Metro Train"
-            />
-           </Col>
+              <Header
+                ONCLICK={handleNavigateAddForm}
+                HEADING="Metro Trains"
+                BUTTON_NAME="Add Metro Train"
+              />
+            </Col>
           </Row>
           {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
           <Row className="mb-4 boxShadow p-4 ">
@@ -229,7 +228,7 @@ const Train = () => {
                 </Form.Group>
               </Col>
               <Col xs={12} md={4} lg={3} className="m-2">
-              <Form.Group controlId="search" className="position-relative">
+                <Form.Group controlId="search" className="position-relative">
                   <Form.Label className="fs-4">Search:</Form.Label>
                   <div className="input-group">
                     <span className="input-group-text">
@@ -257,14 +256,14 @@ const Train = () => {
 
           <Row className="boxShadow p-4 mb-4">
             <BasicTable
-               COLUMNS={COLUMNS}
-               MOCK_DATA={data}
-               currentPage={currentPage}
-               startIndex={startIndex}
-               endIndex={endIndex}
-               setCurrentPage={setCurrentPage}
-               totalItems={totalItems}
-               totalPages={totalPages}
+              COLUMNS={COLUMNS}
+              MOCK_DATA={data}
+              currentPage={currentPage}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              setCurrentPage={setCurrentPage}
+              totalItems={totalItems}
+              totalPages={totalPages}
             />
           </Row>
         </Container>

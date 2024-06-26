@@ -3,30 +3,30 @@ import { Button, Container, Row, Modal, Form, Col } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { IoIosSend } from "react-icons/io";
-import BasicTable from "../../Components/TablePaginationComponent";
-import DeleteModel from "../../Components/DeleteModel";
+import BasicTable from "../../../src/components/TablePaginationComponent";
+import DeleteModel from "../../../src/components/DeleteModel";
 import {
   useGetWithdrawrequestQuery,
   useDeleteWithdrawrequestMutation,
   useEditWithdrawrequestMutation,
   useGetNumberQuery,
   useGetFilterQuery,
-  useAddFilterMutation 
+  useAddFilterMutation,
 } from "../../redux/features/api/WithdrawRequestApi";
 import { useAddIndividualNotificationMutation } from "../../redux/features/api/IndividualNotificationApi";
 import { toast } from "react-toastify";
 import Loader from "../../pages/loginForms/loader/Loader";
 import { useParams, useNavigate } from "react-router-dom";
 import { BsSearch, BsX } from "react-icons/bs";
-import Select from 'react-select';
+import Select from "react-select";
 import { format } from "date-fns";
 
 const Withdrawrequest = () => {
   const [editShow, setEditShow] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
- 
-  const [searchInput, setSearchInput] = useState(""); 
+
+  const [searchInput, setSearchInput] = useState("");
   const [editId, setEditId] = useState(null);
   const [deleteShow, setDeleteShow] = useState(false);
   const [idToDelete, setIdToDelete] = useState("");
@@ -42,53 +42,57 @@ const Withdrawrequest = () => {
   const [sendRequestShow, setSendRequestShow] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [file, setFile] = useState(null); 
+  const [file, setFile] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState(null);
   const [filterOptions, setFilterOptions] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data: getWithdrawrequestData, isLoading ,refetch} = useGetWithdrawrequestQuery({ page: currentPage, search: searchTerm,id:id});
+  const {
+    data: getWithdrawrequestData,
+    isLoading,
+    refetch,
+  } = useGetWithdrawrequestQuery({
+    page: currentPage,
+    search: searchTerm,
+    id: id,
+  });
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneNumberList, setPhoneNumberList] = useState("");
   const { data: PhoneNumberData } = useGetNumberQuery(phoneNumberList);
   const { data: filterData } = useGetFilterQuery();
-  const [addFilter] = useAddFilterMutation(); 
+  const [addFilter] = useAddFilterMutation();
 
   useEffect(() => {
-   
     if (getWithdrawrequestData && getWithdrawrequestData.data) {
       setData(getWithdrawrequestData.data);
       setStartIndex(getWithdrawrequestData.pagination.startIndex);
       setCurrentPage(currentPage);
       setTotalItem(getWithdrawrequestData.pagination.totalItems);
-      setEndIndex(getWithdrawrequestData.pagination.endIndex)
+      setEndIndex(getWithdrawrequestData.pagination.endIndex);
       setTotalPages(getWithdrawrequestData.pagination.totalPages);
-
     }
-  }, [getWithdrawrequestData,currentPage]);
+  }, [getWithdrawrequestData, currentPage]);
 
- 
   useEffect(() => {
     if (filterData && filterData.data) {
-      const options = filterData.data.map(option => ({
-        value: option, 
-        label: option, 
+      const options = filterData.data.map((option) => ({
+        value: option,
+        label: option,
       }));
       setFilterOptions(options);
     }
   }, [filterData]);
-  
 
   const handleFilterChange = async (selectedOption) => {
     try {
       setSelectedFilter(selectedOption);
       console.log("Selected Option:", selectedOption);
-  
+
       // Make API call to add filter
       const response = await addFilter({ status: selectedOption.value });
       console.log("API Response:", response);
-  
+
       if (response?.data) {
         setData(response.data.data);
       }
@@ -96,9 +100,6 @@ const Withdrawrequest = () => {
       console.error("Error:", error);
     }
   };
-  
-
-  
 
   const handleCancel = () => {
     navigate("/admin/withdraw-request");
@@ -113,7 +114,6 @@ const Withdrawrequest = () => {
     setDeleteShow(true);
   };
 
-  
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -189,37 +189,36 @@ const Withdrawrequest = () => {
   const handleSendRequest = async () => {
     try {
       const response = await addIndividualNotification({
-        phoneNumber:phoneNumber,
+        phoneNumber: phoneNumber,
         title: title,
         body: body,
-        image:file,
+        image: file,
       });
 
       if (response?.data) {
         toast.success(response?.data?.message, { autoClose: 1000 });
         navigate("/admin/withdraw-request");
         setSendRequestShow(false);
-        setPhoneNumber("")
-        setTitle("")
-        setBody("")
-        setFile("")
+        setPhoneNumber("");
+        setTitle("");
+        setBody("");
+        setFile("");
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         console.log("else part");
         console.log(response.error);
-        setPhoneNumber("")
-        setTitle("")
-        setBody("")
-        setFile("")
+        setPhoneNumber("");
+        setTitle("");
+        setBody("");
+        setFile("");
       }
     } catch (error) {
       console.error(error);
     }
   };
 
-
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]); 
+    setFile(e.target.files[0]);
   };
 
   const handleInputChange = (newValue) => {
@@ -228,7 +227,7 @@ const Withdrawrequest = () => {
   const COLUMNS = [
     {
       Header: "ID",
-      accessor:"s_no",
+      accessor: "s_no",
       minWidth: 10,
     },
     {
@@ -248,10 +247,10 @@ const Withdrawrequest = () => {
       accessor: "status",
     },
     {
-      Header: 'Created At',
-      accessor: 'createdAt',
+      Header: "Created At",
+      accessor: "createdAt",
       Cell: ({ value }) => {
-        const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
         return <span>{formattedDateTime}</span>;
       },
     },
@@ -259,7 +258,7 @@ const Withdrawrequest = () => {
       Header: "Updated At",
       accessor: "updatedAt",
       Cell: ({ value }) => {
-        const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
         return <span>{formattedDateTime}</span>;
       },
     },
@@ -290,78 +289,82 @@ const Withdrawrequest = () => {
     <div>
       {!isLoading ? (
         <>
-               <Container fluid className="mt-3">
-        <Row className="boxShadow p-4 mb-4 mt-4">
-          <Col className="d-flex flex-row justify-content-between mt-1">
-            <h4 className="fw-bold" onClick={handleCancel}>
-              Withdraw Request
-            </h4>
-            <Button
-              style={{ backgroundColor: "#0077B2", border: "none" }}
-              className="p-2"
-              onClick={() => setSendRequestShow(true)}
-            >
-              <IoIosSend size={20} /><span className="d-none d-md-inline"> Individual Notification</span>
-            </Button>
-          </Col>
-        </Row>
-        {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
-        <Row className=" boxShadow p-3 mb-4   d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
-          
-          <Col className="my-4 mx-2" xxl={3} xl={3} lg={3} sm={6} md={6}>
-          <Select
+          <Container fluid className="mt-3">
+            <Row className="boxShadow p-4 mb-4 mt-4">
+              <Col className="d-flex flex-row justify-content-between mt-1">
+                <h4 className="fw-bold" onClick={handleCancel}>
+                  Withdraw Request
+                </h4>
+                <Button
+                  style={{ backgroundColor: "#0077B2", border: "none" }}
+                  className="p-2"
+                  onClick={() => setSendRequestShow(true)}
+                >
+                  <IoIosSend size={20} />
+                  <span className="d-none d-md-inline">
+                    {" "}
+                    Individual Notification
+                  </span>
+                </Button>
+              </Col>
+            </Row>
+            {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
+            <Row className=" boxShadow p-3 mb-4   d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
+              <Col className="my-4 mx-2" xxl={3} xl={3} lg={3} sm={6} md={6}>
+                <Select
                   options={filterOptions}
                   value={selectedFilter}
                   onChange={handleFilterChange}
                   placeholder="Select Filter"
                 />
-          </Col>
-          <Col className="my-4 mx-2" xxl={3} xl={3} lg={3} sm={6} md={6}>
-            <div className="input-group">
-              <span className="input-group-text">
-                <BsSearch />
-              </span>
-              <input
-                type="text"
-                placeholder="Search PhoneNumber..."
-                className="form-control"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                onKeyPress={handleKeyPress}
-              />
-              {searchInput && (
-                <span className="input-group-text" onClick={handleClear}>
-                  <BsX />
-                </span>
-              )}
-            </div>
-          </Col>
-          <Col  className="d-flex flex-column text-center my-4"
-            xxl={2}
-            xl={2}
-            lg={2}
-            sm={3}
-            md={3}>
-             <Button
-                style={{ backgroundColor: "#0077B2", border: "none" }}
-                onClick={handleSearch}
-                disabled={isSearching} 
+              </Col>
+              <Col className="my-4 mx-2" xxl={3} xl={3} lg={3} sm={6} md={6}>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <BsSearch />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Search PhoneNumber..."
+                    className="form-control"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                  />
+                  {searchInput && (
+                    <span className="input-group-text" onClick={handleClear}>
+                      <BsX />
+                    </span>
+                  )}
+                </div>
+              </Col>
+              <Col
+                className="d-flex flex-column text-center my-4"
+                xxl={2}
+                xl={2}
+                lg={2}
+                sm={3}
+                md={3}
               >
-                {isSearching ? 'Searching...' : 'Search'}
-              </Button>
-          </Col>
-
-          </Row>
+                <Button
+                  style={{ backgroundColor: "#0077B2", border: "none" }}
+                  onClick={handleSearch}
+                  disabled={isSearching}
+                >
+                  {isSearching ? "Searching..." : "Search"}
+                </Button>
+              </Col>
+            </Row>
             <Row className="boxShadow p-4 mb-4">
               <BasicTable
-               COLUMNS={COLUMNS}
-               MOCK_DATA={data}
-               currentPage={currentPage}
-               startIndex={startIndex}
-               endIndex={endIndex}
-               setCurrentPage={setCurrentPage}
-               totalItems={totalItems}
-               totalPages={totalPages}
+                COLUMNS={COLUMNS}
+                MOCK_DATA={data}
+                currentPage={currentPage}
+                startIndex={startIndex}
+                endIndex={endIndex}
+                setCurrentPage={setCurrentPage}
+                totalItems={totalItems}
+                totalPages={totalPages}
               />
             </Row>
           </Container>
@@ -419,22 +422,23 @@ const Withdrawrequest = () => {
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Phone Number </Form.Label>
                   <Select
-  
-  placeholder="Enter PhoneNumber"
-  onInputChange={handleInputChange}
-  options={(PhoneNumberData?.data || []).map((data) => ({
-    value:  data, 
-     label: `${data}`,
-  }))}
-  value={PhoneNumberData?.data?.find((option) => option.value === phoneNumber)}
-  onChange={(selectedOption) => {
-    console.log("Selected input data:", selectedOption.value);
-    setPhoneNumber(selectedOption.value);
-    console.log(phoneNumber);
-    
-    console.log(PhoneNumberData.data);
-  }}
-/>
+                    placeholder="Enter PhoneNumber"
+                    onInputChange={handleInputChange}
+                    options={(PhoneNumberData?.data || []).map((data) => ({
+                      value: data,
+                      label: `${data}`,
+                    }))}
+                    value={PhoneNumberData?.data?.find(
+                      (option) => option.value === phoneNumber
+                    )}
+                    onChange={(selectedOption) => {
+                      console.log("Selected input data:", selectedOption.value);
+                      setPhoneNumber(selectedOption.value);
+                      console.log(phoneNumber);
+
+                      console.log(PhoneNumberData.data);
+                    }}
+                  />
                 </Form.Group>
                 <Form.Group controlId="formBasicUPI">
                   <Form.Label>Title</Form.Label>
@@ -456,10 +460,7 @@ const Withdrawrequest = () => {
                 </Form.Group>
                 <Form.Group controlId="formBasicFile" className="mt-2">
                   <Form.Label>Upload Image</Form.Label>
-                  <Form.Control
-                    type="file"
-                    onChange={handleFileChange}
-                  />
+                  <Form.Control type="file" onChange={handleFileChange} />
                 </Form.Group>
               </Form>
             </Modal.Body>

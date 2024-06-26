@@ -3,10 +3,13 @@ import { Formik } from "formik";
 import { Form, Row, Col, Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { LoaclTrainSchema } from "../../pages/LocalTrain/LocalTrainValidation";
-import { useEditLocalTrainMutation ,useGetLocalTrainByIdQuery} from "../../redux/features/api/LocalTrainApi";
+import {
+  useEditLocalTrainMutation,
+  useGetLocalTrainByIdQuery,
+} from "../../redux/features/api/LocalTrainApi";
 import { toast } from "react-toastify";
-import TextInput from "../../Components/TextInput";
-import BasicButton from "../../Components/BasicButton";
+import TextInput from "../../../src/components/TextInput";
+import BasicButton from "../../../src/components/BasicButton";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const EditTrain = () => {
@@ -31,15 +34,17 @@ const EditTrain = () => {
   const { id } = useParams();
   const Id = id && id.startsWith(":") ? id.slice(1) : id;
   const [EditLocalTrainData, { isLoading }] = useEditLocalTrainMutation();
-  const { data: LocalTrainData } = useGetLocalTrainByIdQuery({id:Id,city:city});
+  const { data: LocalTrainData } = useGetLocalTrainByIdQuery({
+    id: Id,
+    city: city,
+  });
 
   console.log(id);
   console.log(city);
   console.log(LocalTrainData);
 
   useEffect(() => {
-    if (LocalTrainData && LocalTrainData.data)
-     {
+    if (LocalTrainData && LocalTrainData.data) {
       setTrainNo(LocalTrainData.data.trainNo);
       setTrainName(LocalTrainData.data.trainName);
       setType(LocalTrainData.data.type);
@@ -58,7 +63,6 @@ const EditTrain = () => {
       setTrainID(LocalTrainData.data.trainID);
     }
   }, [LocalTrainData]);
- 
 
   const handleCancel = () => {
     navigate("/admin/local-train");
@@ -86,24 +90,25 @@ const EditTrain = () => {
   const handleEditData = async () => {
     try {
       const response = await EditLocalTrainData({
-         id: Id, city:city,
+        id: Id,
+        city: city,
         data: {
-          trainNo:trainNo,
-          trainName:trainName,
-          type:type,
-          zone:zone,
-          updatedOn:updatedOn,
-          from:from,
-          departure:departure,
-          to:to,
-          arrival:arrival,
-          duration:duration,
-          distance:distance,
-          speed:speed,
-          halts:halts,
-          sClasses:sClasses,
-          sRunsOn:sRunsOn,
-          trainID:trainID,
+          trainNo: trainNo,
+          trainName: trainName,
+          type: type,
+          zone: zone,
+          updatedOn: updatedOn,
+          from: from,
+          departure: departure,
+          to: to,
+          arrival: arrival,
+          duration: duration,
+          distance: distance,
+          speed: speed,
+          halts: halts,
+          sClasses: sClasses,
+          sRunsOn: sRunsOn,
+          trainID: trainID,
         },
       });
       if (response?.data) {
@@ -125,7 +130,7 @@ const EditTrain = () => {
         setTrainID("");
 
         toast.success(response?.data?.message, { autoClose: 1000 });
-    navigate("/admin/local-train")
+        navigate("/admin/local-train");
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
       }
@@ -153,7 +158,7 @@ const EditTrain = () => {
           }) => (
             <>
               <Form>
-              <Row className="d-flex flex-row justify-content-between align-items-center mt-3">
+                <Row className="d-flex flex-row justify-content-between align-items-center mt-3">
                   <Col className="d-flex justify-content-start mb-3">
                     <h4 onClick={handleCancel}>
                       <AiOutlineArrowLeft />
@@ -161,13 +166,13 @@ const EditTrain = () => {
                     <h4>Edit LocalTrain</h4>
                   </Col>
                   <Col className="d-sm-none d-none d-md-none d-lg-flex d-xxl-flex d-xl-flex flex-row justify-content-end align-items-center">
-                 <BasicButton
+                    <BasicButton
                       className="m-1"
                       variant="secondary"
                       onClick={handleCancel}
                       label="Cancel"
-                    />              
-                      <BasicButton
+                    />
+                    <BasicButton
                       className="m-1"
                       label="Update"
                       type="button"
@@ -175,28 +180,28 @@ const EditTrain = () => {
                       loaderVariant="info"
                       disabled={isSubmitting}
                       onClick={
-                       trainNo  === "" ||
-                       trainName  === "" || 
-                       type === "" ||
-                       zone  === "" ||
-                       updatedOn  === "" ||
-                       from  === "" ||     
-                       departure === "" ||
-                       to === "" ||
-                       arrival  === "" ||
-                       duration === "" ||
-                       distance  === "" ||
-                       speed === "" ||
-                       halts  === "" ||
-                       sClasses === "" || 
-                       sRunsOn === "" ||
-                       trainID  === "" ||          
-                       (touched.trainNo && errors.trainNo) ||
+                        trainNo === "" ||
+                        trainName === "" ||
+                        type === "" ||
+                        zone === "" ||
+                        updatedOn === "" ||
+                        from === "" ||
+                        departure === "" ||
+                        to === "" ||
+                        arrival === "" ||
+                        duration === "" ||
+                        distance === "" ||
+                        speed === "" ||
+                        halts === "" ||
+                        sClasses === "" ||
+                        sRunsOn === "" ||
+                        trainID === "" ||
+                        (touched.trainNo && errors.trainNo) ||
                         (touched.trainName && errors.trainName) ||
                         (touched.type && errors.type) ||
                         (touched.zone && errors.zone) ||
                         (touched.updatedOn && errors.updatedOn) ||
-                        (touched.from && errors.from) ||   
+                        (touched.from && errors.from) ||
                         (touched.departure && errors.departure) ||
                         (touched.to && errors.to) ||
                         (touched.arrival && errors.arrival) ||
@@ -206,18 +211,15 @@ const EditTrain = () => {
                         (touched.halts && errors.halts) ||
                         (touched.duration && errors.duration) ||
                         (touched.sRunsOn && errors.sRunsOn) ||
-                        (touched.trainID && errors.trainID)   
-                        ? handleSubmit
-                        : handleEditData
-                    }
-              
-                   
-                  />
-                            
-                          </Col>  
-                         </Row>            
-                        
-                         <Row className="mb-3">
+                        (touched.trainID && errors.trainID)
+                          ? handleSubmit
+                          : handleEditData
+                      }
+                    />
+                  </Col>
+                </Row>
+
+                <Row className="mb-3">
                   <Form
                     onSubmit={""}
                     className="d-flex flex-column flex-md-row align-items-md-center justify-content-start"
@@ -744,9 +746,9 @@ const EditTrain = () => {
                     </Col>
                   </Col>
                 </Row>
-                
-                     <Row className=" mt-3  d-sm-flex d-flex d-md-flex d-lg-none d-xxl-none d-xl-none flex-row justify-content-between align-items-center mt-3">  
-                    <Col className="d-flex justify-content-start align-items-center">                 
+
+                <Row className=" mt-3  d-sm-flex d-flex d-md-flex d-lg-none d-xxl-none d-xl-none flex-row justify-content-between align-items-center mt-3">
+                  <Col className="d-flex justify-content-start align-items-center">
                     <BasicButton
                       className="m-1"
                       variant="secondary"
@@ -754,54 +756,52 @@ const EditTrain = () => {
                       label="Cancel"
                     />
                   </Col>
-                  
-                 <Col className="d-flex justify-content-end align-items-center">            
-                   <BasicButton
-                     className="m-1"
-                     label="Update"
-                     type="button"
-                     isLoading={isLoading}
-                     loaderVariant="info"
-                     disabled={isSubmitting}
-                     onClick={
-                      trainNo  === "" ||
-                      trainName  === "" || 
-                      type === "" ||
-                      zone  === "" ||
-                      updatedOn  === "" ||
-                      from  === "" ||     
-                      departure === "" ||
-                      to === "" ||
-                      arrival  === "" ||
-                      duration === "" ||
-                      distance  === "" ||
-                      speed === "" ||
-                      halts  === "" ||
-                      sClasses === "" || 
-                      sRunsOn === "" ||
-                      trainID  === "" ||          
-                      (touched.trainNo && errors.trainNo) ||
-                       (touched.trainName && errors.trainName) ||
-                       (touched.type && errors.type) ||
-                       (touched.zone && errors.zone) ||
-                       (touched.updatedOn && errors.updatedOn) ||
-                       (touched.from && errors.from) ||   
-                       (touched.departure && errors.departure) ||
-                       (touched.to && errors.to) ||
-                       (touched.arrival && errors.arrival) ||
-                       (touched.duration && errors.duration) ||
-                       (touched.distance && errors.distance) ||
-                       (touched.duration && errors.duration) ||
-                       (touched.halts && errors.halts) ||
-                       (touched.duration && errors.duration) ||
-                       (touched.sRunsOn && errors.sRunsOn) ||
-                       (touched.trainID && errors.trainID)   
-                       ? handleSubmit
-                       : handleEditData
-                   }
-             
-                  
-                 />
+
+                  <Col className="d-flex justify-content-end align-items-center">
+                    <BasicButton
+                      className="m-1"
+                      label="Update"
+                      type="button"
+                      isLoading={isLoading}
+                      loaderVariant="info"
+                      disabled={isSubmitting}
+                      onClick={
+                        trainNo === "" ||
+                        trainName === "" ||
+                        type === "" ||
+                        zone === "" ||
+                        updatedOn === "" ||
+                        from === "" ||
+                        departure === "" ||
+                        to === "" ||
+                        arrival === "" ||
+                        duration === "" ||
+                        distance === "" ||
+                        speed === "" ||
+                        halts === "" ||
+                        sClasses === "" ||
+                        sRunsOn === "" ||
+                        trainID === "" ||
+                        (touched.trainNo && errors.trainNo) ||
+                        (touched.trainName && errors.trainName) ||
+                        (touched.type && errors.type) ||
+                        (touched.zone && errors.zone) ||
+                        (touched.updatedOn && errors.updatedOn) ||
+                        (touched.from && errors.from) ||
+                        (touched.departure && errors.departure) ||
+                        (touched.to && errors.to) ||
+                        (touched.arrival && errors.arrival) ||
+                        (touched.duration && errors.duration) ||
+                        (touched.distance && errors.distance) ||
+                        (touched.duration && errors.duration) ||
+                        (touched.halts && errors.halts) ||
+                        (touched.duration && errors.duration) ||
+                        (touched.sRunsOn && errors.sRunsOn) ||
+                        (touched.trainID && errors.trainID)
+                          ? handleSubmit
+                          : handleEditData
+                      }
+                    />
                   </Col>
                 </Row>
               </Form>

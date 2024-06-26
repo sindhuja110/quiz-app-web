@@ -3,10 +3,13 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import BasicTable from "../../Components/TablePaginationComponent";
-import Header from "../../Components/Header";
-import DeleteModel from "../../Components/DeleteModel";
-import { useGetTrainQuery, useDeleteTrainMutation } from "../../redux/features/api/TrainApi";
+import BasicTable from "../../../src/components/TablePaginationComponent";
+import Header from "../../../src/components/Header";
+import DeleteModel from "../../../src/components/DeleteModel";
+import {
+  useGetTrainQuery,
+  useDeleteTrainMutation,
+} from "../../redux/features/api/TrainApi";
 import { toast } from "react-toastify";
 import Loader from "../../pages/loginForms/loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
@@ -25,8 +28,12 @@ const Train = () => {
   const [totalItems, setTotalItem] = useState();
   const [isSearching, setIsSearching] = useState(false);
 
-  const [searchInput, setSearchInput] = useState(""); 
-  const { data: getTrainData, isLoading ,refetch } = useGetTrainQuery({ page: currentPage, search: searchTerm });
+  const [searchInput, setSearchInput] = useState("");
+  const {
+    data: getTrainData,
+    isLoading,
+    refetch,
+  } = useGetTrainQuery({ page: currentPage, search: searchTerm });
   console.log(getTrainData);
   const navigate = useNavigate();
 
@@ -38,13 +45,11 @@ const Train = () => {
       setStartIndex(getTrainData.pagination.startIndex);
       setCurrentPage(currentPage);
       setTotalItem(getTrainData.pagination.totalItems);
-      setEndIndex(getTrainData.pagination.endIndex)
+      setEndIndex(getTrainData.pagination.endIndex);
       setTotalPages(getTrainData.pagination.totalPages);
-
-
     }
   }, [getTrainData, currentPage]);
-  
+
   const deleteHandleClose = () => setDeleteShow(false);
 
   const deleteHandleShow = (id) => {
@@ -56,7 +61,7 @@ const Train = () => {
     setIsSearching(true);
     setSearchTerm(searchInput);
     refetch({ page: currentPage, search: searchInput }).then(() => {
-      setIsSearching(false); 
+      setIsSearching(false);
     });
   };
 
@@ -65,7 +70,6 @@ const Train = () => {
     setSearchTerm("");
   };
 
-  
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -84,7 +88,7 @@ const Train = () => {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         console.log("else part");
         console.log(response.error);
-       }
+      }
     } catch (error) {
       console.error(error);
     }
@@ -93,7 +97,7 @@ const Train = () => {
   const COLUMNS = [
     {
       Header: "ID",
-      accessor:"s_no",
+      accessor: "s_no",
     },
     {
       Header: "Train No",
@@ -104,10 +108,10 @@ const Train = () => {
       accessor: "TrainName",
     },
     {
-      Header: 'Created At',
-      accessor: 'createdAt',
+      Header: "Created At",
+      accessor: "createdAt",
       Cell: ({ value }) => {
-        const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
         return <span>{formattedDateTime}</span>;
       },
     },
@@ -115,11 +119,11 @@ const Train = () => {
       Header: "Updated At",
       accessor: "updatedAt",
       Cell: ({ value }) => {
-        const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
         return <span>{formattedDateTime}</span>;
       },
     },
-   
+
     {
       Header: "ACTIONS",
       accessor: "action",
@@ -127,12 +131,16 @@ const Train = () => {
         const rowIdx = props.row.original._id;
         return (
           <div className="d-flex align-items-center justify-content-center flex-row">
-          <Link to={`/admin/edit-train/${rowIdx}`}>
+            <Link to={`/admin/edit-train/${rowIdx}`}>
               <Button variant="warning">
                 <FaEdit />
               </Button>
             </Link>
-            <Button variant="danger" className="m-1" onClick={() => deleteHandleShow(rowIdx)}>
+            <Button
+              variant="danger"
+              className="m-1"
+              onClick={() => deleteHandleShow(rowIdx)}
+            >
               <MdDelete />
             </Button>
           </div>
@@ -146,13 +154,13 @@ const Train = () => {
       {!isLoading ? (
         <Container fluid className="mt-3">
           <Row className="boxShadow p-4 mb-4 mt-4 ">
-          <Col>
-            <Header
-              ONCLICK={handleNavigateAddForm}
-              HEADING= "Trains"
-              BUTTON_NAME= "Add Train"
-           />
-           </Col>
+            <Col>
+              <Header
+                ONCLICK={handleNavigateAddForm}
+                HEADING="Trains"
+                BUTTON_NAME="Add Train"
+              />
+            </Col>
           </Row>
           {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
           <Row className=" boxShadow p-3 mb-4 d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row">
@@ -167,43 +175,43 @@ const Train = () => {
                   className="form-control"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
-                  onKeyPress={handleKeyPress} 
+                  onKeyPress={handleKeyPress}
                 />
                 {searchInput && (
-                  <span className="input-group-text" onClick={handleClear} >
-                    <BsX/>
+                  <span className="input-group-text" onClick={handleClear}>
+                    <BsX />
                   </span>
                 )}
               </div>
             </Col>
-            <Col  className="d-flex flex-column text-center my-4"
-            xxl={2}
-            xl={2}
-            lg={2}
-            sm={3}
-            md={3}>
-             <Button
+            <Col
+              className="d-flex flex-column text-center my-4"
+              xxl={2}
+              xl={2}
+              lg={2}
+              sm={3}
+              md={3}
+            >
+              <Button
                 style={{ backgroundColor: "#0077B2", border: "none" }}
                 onClick={handleSearch}
-                disabled={isSearching} 
+                disabled={isSearching}
               >
-                {isSearching ? 'Searching...' : 'Search'}
+                {isSearching ? "Searching..." : "Search"}
               </Button>
             </Col>
           </Row>
 
-             <Row className=" boxShadow p-4 mb-4 d-flex flex-column align-items-center justift-content-center">
+          <Row className=" boxShadow p-4 mb-4 d-flex flex-column align-items-center justift-content-center">
             <BasicTable
-             COLUMNS={COLUMNS}
-             MOCK_DATA={data}
-             currentPage={currentPage}
-             startIndex={startIndex}
-             endIndex={endIndex}
-             setCurrentPage={setCurrentPage}
-             totalItems={totalItems}
-             totalPages={totalPages}
-
-          
+              COLUMNS={COLUMNS}
+              MOCK_DATA={data}
+              currentPage={currentPage}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              setCurrentPage={setCurrentPage}
+              totalItems={totalItems}
+              totalPages={totalPages}
             />
           </Row>
         </Container>
@@ -214,7 +222,7 @@ const Train = () => {
         YES={deleteTrain}
         DELETESTATE={deleteShow}
         ONCLICK={deleteHandleClose}
-        DESCRIPTION= "Are you sure you want to delete this Train"
+        DESCRIPTION="Are you sure you want to delete this Train"
         DELETETITLE="Train"
       />
     </div>

@@ -4,13 +4,12 @@
 // import { useNavigate } from "react-router-dom";
 // import { AiOutlineArrowLeft } from "react-icons/ai";
 // import UserListSchema from '../../pages/Userlist/UserValidation';
-// import BasicButton from "../../components/BasicButton";
-// import TextInput from "../../components/TextInput";
+// import BasicButton from "../../../src/components/BasicButton";
+// import TextInput from "../../../src/components/TextInput";
 // import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 // import { useAddUserListMutation } from "../../redux/features/api/UserListApi"
 // import { toast } from "react-toastify";
-
 
 // const AddUser = () => {
 //   const [email, setEmail] = useState("");
@@ -18,7 +17,6 @@
 //   const [passwordIcon, setPasswordIcon] = useState(false);
 //   const [confirmPasswordIcon, setConfirmPasswordIcon] = useState(false);
 //   const [confirmPassword, setConfirmPassword] = useState("");
- 
 
 //   const [UserAddData, { isLoading }] = useAddUserListMutation();
 //   const navigate = useNavigate();
@@ -43,7 +41,7 @@
 //       setPasswordIcon(false);
 //     }
 //   };
-  
+
 //   const showConfirmPassword = () => {
 //     let eye = document.getElementById("confirmPassword");
 //     if (eye.type === "password") {
@@ -54,7 +52,6 @@
 //       setConfirmPasswordIcon(false);
 //     }
 //   };
-  
 
 //   const handleAddData = async () => {
 //     try {
@@ -64,18 +61,18 @@
 //         console.log("Passwords do not match");
 //         return;
 //       }
-  
+
 //       const response = await UserAddData({
 //         email: email,
 //         password: password,
 //         confirmPassword: confirmPassword,
 //       });
-  
+
 //       if (response?.data) {
 //         setEmail("");
 //         setPassword("");
 //         setConfirmPassword("");
-  
+
 //         navigate("/admin/user-list");
 //         toast.success(response?.data?.message, { autoClose: 1000 });
 //         setTimeout(() => navigate("/admin/user-list"), 3000);

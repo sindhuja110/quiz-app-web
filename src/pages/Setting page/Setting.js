@@ -7,12 +7,10 @@ import {
 } from "../../redux/features/api/SettingPageApi";
 import { toast } from "react-toastify";
 import axios from "axios";
-import Header from "../../Components/Header";
-import DeleteModel from "../../Components/DeleteModel";
-
+import Header from "../../../src/components/Header";
+import DeleteModel from "../../../src/components/DeleteModel";
 
 const Setting = () => {
-
   const [deleteShow, setDeleteShow] = useState(false);
   const [indexToDelete, setindexToDelete] = useState("");
   const { data: imageData, isLoading, isError } = useGetSettingImageQuery();
@@ -150,8 +148,7 @@ const Setting = () => {
         toast.success(response?.data?.message, { autoClose: 1000 });
         setCarouselImageFile(null);
         setCarouselModalOpen(false);
-        window.location.reload(); 
-       
+        window.location.reload();
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         setCarouselImageFile(null);
@@ -243,14 +240,14 @@ const Setting = () => {
       <Col className="">
         <Row className="mt-4">
           <Col>
-          <Header
-            ONCLICK={() => setCarouselModalOpen(true)}
-            HEADING="Settings"
-            BUTTON_NAME="Add Carousel Image"
-          />
+            <Header
+              ONCLICK={() => setCarouselModalOpen(true)}
+              HEADING="Settings"
+              BUTTON_NAME="Add Carousel Image"
+            />
           </Col>
         </Row>
-        <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/>
+        <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 " />
         {[
           {
             images: [settingData.referralBanner, settingData.ratingBanner],

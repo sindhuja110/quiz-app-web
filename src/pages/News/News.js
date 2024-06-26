@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { MdDelete, MdRefresh } from "react-icons/md";
 import axios from "axios";
-import Header from "../../Components/BasicHeader";
+import Header from "../../../src/components/BasicHeader";
 import Loader from "../../pages/loginForms/loader/Loader";
 import {
   useGetNewsTableQuery,
   useDeleteNewsMutation,
 } from "../../redux/features/api/NewsApi";
 import { toast } from "react-toastify";
-import DeleteModel from "../../Components/DeleteModel";
-import Tablepagination from "../../Components/TablePaginationComponent";
+import DeleteModel from "../../../src/components/DeleteModel";
+import Tablepagination from "../../../src/components/TablePaginationComponent";
 import { format } from "date-fns";
 
 const News = () => {
@@ -39,12 +39,11 @@ const News = () => {
       setStartIndex(newsTableData.pagination.startIndex);
       setCurrentPage(currentPage);
       setTotalItem(newsTableData.pagination.totalItems);
-      setEndIndex(newsTableData.pagination.endIndex)
+      setEndIndex(newsTableData.pagination.endIndex);
       setTotalPages(newsTableData.pagination.totalPages);
-
     }
-  }, [newsTableData,currentPage]);
-console.log(newsTableData);
+  }, [newsTableData, currentPage]);
+  console.log(newsTableData);
   const deleteHandleClose = () => setDeleteShow(false);
 
   const deleteHandleShow = (id) => {
@@ -99,7 +98,7 @@ console.log(newsTableData);
         toast.success(response?.data?.message, { autoClose: 1000 });
         setLang("");
         setCategory("");
-        window.location.reload(); 
+        window.location.reload();
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         setLang("");
@@ -111,14 +110,14 @@ console.log(newsTableData);
   };
 
   const handleFormSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     await handleSubmit();
   };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      handleSubmit(); 
+      handleSubmit();
     }
   };
 
@@ -151,7 +150,7 @@ console.log(newsTableData);
       Header: "Published At",
       accessor: "publishedAt",
       Cell: ({ value }) => {
-        const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
         return <span>{formattedDateTime}</span>;
       },
     },
@@ -191,8 +190,8 @@ console.log(newsTableData);
             </Row>
             {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
             <Row className="mb-3 boxShadow p-3 mb-4 d-flex  flex-lg-row flex-column flex-xxl-row flex-xl-row flex-sm-column flex-md-row ">
-              <Col >
-              <Form onSubmit={handleFormSubmit} onKeyPress={handleKeyPress}>
+              <Col>
+                <Form onSubmit={handleFormSubmit} onKeyPress={handleKeyPress}>
                   <Row className="mb-4 mt-4">
                     <Col xs={12} md={4} lg={3}>
                       <Form.Group controlId="language">
@@ -283,14 +282,14 @@ console.log(newsTableData);
                 className="table-responsive"
               >
                 <Tablepagination
-                   COLUMNS={COLUMNS}
-                   MOCK_DATA={data}
-                   currentPage={currentPage}
-                   startIndex={startIndex}
-                   endIndex={endIndex}
-                   setCurrentPage={setCurrentPage}
-                   totalItems={totalItems}
-                   totalPages={totalPages}
+                  COLUMNS={COLUMNS}
+                  MOCK_DATA={data}
+                  currentPage={currentPage}
+                  startIndex={startIndex}
+                  endIndex={endIndex}
+                  setCurrentPage={setCurrentPage}
+                  totalItems={totalItems}
+                  totalPages={totalPages}
                 />
               </Col>
             </Row>

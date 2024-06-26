@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useGetDashboardQuery } from "../../redux/features/api/DashboardApi";
 import Loader from "../Loader/Loader";
-import TableComponents from "../../Components/TableComponent";
+import TableComponents from "../../../src/components/TableComponent";
 import { Link } from "react-router-dom";
 import { PiUserListBold } from "react-icons/pi";
 import { MdFeedback } from "react-icons/md";

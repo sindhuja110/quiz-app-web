@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import BasicButton from "../../Components/BasicButton";
+import BasicButton from "../../../src/components/BasicButton";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 

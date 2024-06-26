@@ -4,8 +4,8 @@ import { Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { MetroTrainSchema } from "../../pages/MetroTrain/MetroTrainValidation";
-import BasicButton from "../../Components/BasicButton";
-import TextInput from "../../Components/TextInput";
+import BasicButton from "../../../src/components/BasicButton";
+import TextInput from "../../../src/components/TextInput";
 import { useAddMetroTrainMutation } from "../../redux/features/api/MetroTrainApi";
 import { toast } from "react-toastify";
 
@@ -23,8 +23,8 @@ const AddLocalTrain = () => {
   const [timing2frequency, setTiming2frequency] = useState("");
   const [timing3, setTiming3] = useState("");
   const [timing3frequency, setTiming3frequency] = useState("");
-  
-  const [city, setCity] = useState("chennai"); 
+
+  const [city, setCity] = useState("chennai");
   const [AddMetroTrainData, { isLoading }] = useAddMetroTrainMutation();
   const navigate = useNavigate();
 
@@ -47,16 +47,14 @@ const AddLocalTrain = () => {
     timing2frequency: "",
     timing3: "",
     timing3frequency: "",
-    
   };
 
-  
   const handleAddData = async () => {
     try {
       const data = {
-        route:route ,
+        route: route,
         day: day,
-        source:source,
+        source: source,
         destination: destination,
         via: via,
         first_train: firsttrain,
@@ -68,20 +66,19 @@ const AddLocalTrain = () => {
         timing3: timing3,
         timing3_train_frequency: timing3frequency,
       };
-  
-      
-      console.log('Request Payload:', data);
-  
+
+      console.log("Request Payload:", data);
+
       const response = await AddMetroTrainData({ data, city });
       if (response?.data) {
         toast.success(response?.data?.message, { autoClose: 1000 });
         console.log(response);
-       navigate("/admin/metro-train")
+        navigate("/admin/metro-train");
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         console.log("else part");
         console.log(response.error);
-       }
+      }
     } catch (error) {
       console.error(error);
     }
@@ -140,7 +137,6 @@ const AddLocalTrain = () => {
                         timing2frequency === "" ||
                         timing3 === "" ||
                         timing3frequency === "" ||
-                       
                         (touched.route && errors.route) ||
                         (touched.day && errors.day) ||
                         (touched.source && errors.source) ||
@@ -153,8 +149,7 @@ const AddLocalTrain = () => {
                         (touched.timing2 && errors.timing2) ||
                         (touched.timing2frequency && errors.timing2frequency) ||
                         (touched.timing3 && errors.timing3) ||
-                        (touched.timing3frequency && errors.timing3frequency) 
-                        
+                        (touched.timing3frequency && errors.timing3frequency)
                           ? handleSubmit
                           : handleAddData
                       }
@@ -232,9 +227,7 @@ const AddLocalTrain = () => {
                         type=""
                         name="day"
                         className={`form-control ${
-                          touched.day && errors.day
-                            ? "is-invalid"
-                            : ""
+                          touched.day && errors.day ? "is-invalid" : ""
                         }`}
                         onChange={(e) => {
                           setDay(e.target.value);
@@ -293,7 +286,9 @@ const AddLocalTrain = () => {
                         type=""
                         name="destination"
                         className={`form-control ${
-                          touched.destination && errors.destination ? "is-invalid" : ""
+                          touched.destination && errors.destination
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
                           setDestination(e.target.value);
@@ -322,9 +317,7 @@ const AddLocalTrain = () => {
                         type=""
                         name="via"
                         className={`form-control ${
-                          touched.via && errors.via
-                            ? "is-invalid"
-                            : ""
+                          touched.via && errors.via ? "is-invalid" : ""
                         }`}
                         onChange={(e) => {
                           setVia(e.target.value);
@@ -353,7 +346,9 @@ const AddLocalTrain = () => {
                         type="time"
                         name="firsttrain"
                         className={`form-control ${
-                          touched.firsttrain && errors.firsttrain ? "is-invalid" : ""
+                          touched.firsttrain && errors.firsttrain
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
                           setFirsttrain(e.target.value);
@@ -400,7 +395,6 @@ const AddLocalTrain = () => {
                         }
                       />
                     </Col>
-                    
                   </Col>
 
                   <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
@@ -457,8 +451,11 @@ const AddLocalTrain = () => {
                         }}
                         onBlur={handleBlur}
                         validation={
-                          touched.timing1frequency && errors.timing1frequency ? (
-                            <p className="text-danger">{errors.timing1frequency}</p>
+                          touched.timing1frequency &&
+                          errors.timing1frequency ? (
+                            <p className="text-danger">
+                              {errors.timing1frequency}
+                            </p>
                           ) : (
                             ""
                           )
@@ -478,9 +475,7 @@ const AddLocalTrain = () => {
                         type=""
                         name="timing2"
                         className={`form-control ${
-                          touched.timing2 && errors.timing2
-                            ? "is-invalid"
-                            : ""
+                          touched.timing2 && errors.timing2 ? "is-invalid" : ""
                         }`}
                         onChange={(e) => {
                           setTiming2(e.target.value);
@@ -509,7 +504,9 @@ const AddLocalTrain = () => {
                         type=""
                         name="timing2frequency"
                         className={`form-control ${
-                          touched.timing2frequency && errors.timing2frequency ? "is-invalid" : ""
+                          touched.timing2frequency && errors.timing2frequency
+                            ? "is-invalid"
+                            : ""
                         }`}
                         onChange={(e) => {
                           setTiming2frequency(e.target.value);
@@ -517,8 +514,11 @@ const AddLocalTrain = () => {
                         }}
                         onBlur={handleBlur}
                         validation={
-                          touched.timing2frequency && errors.timing2frequency ? (
-                            <p className="text-danger">{errors.timing2frequency}</p>
+                          touched.timing2frequency &&
+                          errors.timing2frequency ? (
+                            <p className="text-danger">
+                              {errors.timing2frequency}
+                            </p>
                           ) : (
                             ""
                           )
@@ -577,15 +577,17 @@ const AddLocalTrain = () => {
                         }}
                         onBlur={handleBlur}
                         validation={
-                          touched.timing3frequency && errors.timing3frequency ? (
-                            <p className="text-danger">{errors.timing3frequency}</p>
+                          touched.timing3frequency &&
+                          errors.timing3frequency ? (
+                            <p className="text-danger">
+                              {errors.timing3frequency}
+                            </p>
                           ) : (
                             ""
                           )
                         }
                       />
                     </Col>
-                   
                   </Col>
                 </Row>
                 <Row className="d-sm-flex d-flex d-md-flex d-lg-none d-xxl-none d-xl-none flex-row justify-content-between align-items-center mt-3">
@@ -619,7 +621,6 @@ const AddLocalTrain = () => {
                         timing2frequency === "" ||
                         timing3 === "" ||
                         timing3frequency === "" ||
-                       
                         (touched.route && errors.route) ||
                         (touched.day && errors.day) ||
                         (touched.source && errors.source) ||
@@ -632,7 +633,7 @@ const AddLocalTrain = () => {
                         (touched.timing2 && errors.timing2) ||
                         (touched.timing2frequency && errors.timing2frequency) ||
                         (touched.timing3 && errors.timing3) ||
-                        (touched.timing3frequency && errors.timing3frequency) 
+                        (touched.timing3frequency && errors.timing3frequency)
                           ? handleSubmit
                           : handleAddData
                       }

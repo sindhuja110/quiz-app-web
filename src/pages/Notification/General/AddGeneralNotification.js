@@ -4,8 +4,8 @@ import { Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { NotificationSchema } from ".././../../pages/Notification/General/GeneralValidation";
-import BasicButton from "../../../Components/BasicButton";
-import TextInput from "../../../Components/TextInput";
+import BasicButton from "../../../../src/components/BasicButton";
+import TextInput from "../../../../src/components/TextInput";
 
 import { useAddNotificationMutation } from "../../../redux/features/api/GeneralNotificationApi";
 import { toast } from "react-toastify";
@@ -29,21 +29,18 @@ const AddGeneralNotification = () => {
 
   const handleAddData = async () => {
     try {
-      const response = await NotificationAddData ({
+      const response = await NotificationAddData({
         title: title,
         body: body,
-        image:image,
-         
+        image: image,
       });
       if (response?.data) {
-       
         toast.success(response?.data?.message, { autoClose: 1000 });
         setTitle("");
         setBody("");
         setImage("");
         navigate("/admin/general");
         console.log(response.error.data);
-        
       } else {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         console.log("else part");
@@ -51,7 +48,6 @@ const AddGeneralNotification = () => {
       }
     } catch (error) {
       console.error(error);
-   
     }
   };
 
@@ -96,9 +92,9 @@ const AddGeneralNotification = () => {
                       loaderVariant="info"
                       disabled={isSubmitting}
                       onClick={
-                        title === ''||
-                        (body=== '')||
-                        image === ''||
+                        title === "" ||
+                        body === "" ||
+                        image === "" ||
                         (touched.title && errors.title) ||
                         (touched.body && errors.body) ||
                         (touched.image && errors.image)
@@ -139,9 +135,7 @@ const AddGeneralNotification = () => {
                         type=""
                         name="body"
                         className={`form-control ${
-                          touched.body && errors.body
-                            ? "is-invalid"
-                            : ""
+                          touched.body && errors.body ? "is-invalid" : ""
                         }`}
                         onChange={(e) => {
                           setBody(e.target.value);
@@ -157,19 +151,18 @@ const AddGeneralNotification = () => {
                         }
                       />
                     </Col>
-                   
                   </Col>
                   <Col className="m-1 p-4 d-flex flex-wrap flex-column shadow rounded">
-                  <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
+                    <Col className="m-2" lg="6" xxl="6" xl="12" md="12" sm="12">
                       <TextInput
                         label="Image"
-                        type="file" 
+                        type="file"
                         name="image"
                         className={`form-control ${
                           touched.image && errors.image ? "is-invalid" : ""
                         }`}
                         onChange={(e) => {
-                          setImage(e.target.files[0]); 
+                          setImage(e.target.files[0]);
                           handleChange(e);
                         }}
                         onBlur={handleBlur}
@@ -182,7 +175,6 @@ const AddGeneralNotification = () => {
                         }
                       />
                     </Col>
-
                   </Col>
                 </Row>
                 <Row className="d-sm-flex d-flex d-md-flex d-lg-none d-xxl-none d-xl-none flex-row justify-content-between align-items-center mt-3">
@@ -203,9 +195,9 @@ const AddGeneralNotification = () => {
                       loaderVariant="info"
                       disabled={isSubmitting}
                       onClick={
-                        title === ''||
-                        (body=== '')||
-                        image === ''||
+                        title === "" ||
+                        body === "" ||
+                        image === "" ||
                         (touched.title && errors.title) ||
                         (touched.body && errors.body) ||
                         (touched.image && errors.image)

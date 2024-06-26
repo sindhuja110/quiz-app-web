@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import BasicTable from "../../Components/TablePaginationComponent";
-import BasicHeader from "../../Components/BasicHeader";
+import BasicTable from "../../../src/components/TablePaginationComponent";
+import BasicHeader from "../../../src/components/BasicHeader";
 import { useGetRewardsQuery } from "../../redux/features/api/RewardsApi";
 import Loader from "../../pages/loginForms/loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
 
 const Rewards = () => {
-
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [startIndex, setStartIndex] = useState(1);
@@ -16,9 +15,13 @@ const Rewards = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItem] = useState();
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchInput, setSearchInput] = useState(""); 
+  const [searchInput, setSearchInput] = useState("");
   const [isSearching, setIsSearching] = useState(false);
-  const { data: getRewardsData, isLoading ,refetch } = useGetRewardsQuery({ page: currentPage, search: searchTerm });
+  const {
+    data: getRewardsData,
+    isLoading,
+    refetch,
+  } = useGetRewardsQuery({ page: currentPage, search: searchTerm });
 
   useEffect(() => {
     if (getRewardsData && getRewardsData.data) {
@@ -26,12 +29,10 @@ const Rewards = () => {
       setStartIndex(getRewardsData.pagination.startIndex);
       setCurrentPage(currentPage);
       setTotalItem(getRewardsData.pagination.totalItems);
-      setEndIndex(getRewardsData.pagination.endIndex)
+      setEndIndex(getRewardsData.pagination.endIndex);
       setTotalPages(getRewardsData.pagination.totalPages);
     }
   }, [getRewardsData, currentPage]);
-
-
 
   const handleClear = () => {
     setSearchInput("");
@@ -39,26 +40,23 @@ const Rewards = () => {
   };
 
   const handleSearch = () => {
-    setIsSearching(true); 
+    setIsSearching(true);
     setSearchTerm(searchInput);
     refetch({ page: currentPage, search: searchInput }).then(() => {
-      setIsSearching(false); 
+      setIsSearching(false);
     });
   };
 
-  
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
   };
 
-
-
   const COLUMNS = [
     {
       Header: "ID",
-      accessor:"s_no",
+      accessor: "s_no",
     },
     {
       Header: "Phone Number",
@@ -69,23 +67,21 @@ const Rewards = () => {
       accessor: "giftAmount",
     },
     {
-        Header: "Status",
-        accessor: "status",
-      },
-      {
-        Header: "Type",
-        accessor: "type",
-      },
+      Header: "Status",
+      accessor: "status",
+    },
     {
-      Header: 'Created At',
-      accessor: 'createdAt',
+      Header: "Type",
+      accessor: "type",
+    },
+    {
+      Header: "Created At",
+      accessor: "createdAt",
       Cell: ({ value }) => {
-        const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
         return <span>{formattedDateTime}</span>;
       },
     },
-   
-   
   ];
 
   return (
@@ -94,7 +90,7 @@ const Rewards = () => {
         <Container fluid className="mt-3">
           <Row className="boxShadow p-4 mb-4 mt-4">
             <Col>
-            <BasicHeader HEADING="Rewards" />
+              <BasicHeader HEADING="Rewards" />
             </Col>
           </Row>
           {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
@@ -119,38 +115,39 @@ const Rewards = () => {
                 )}
               </div>
             </Col>
-            <Col  className="d-flex flex-column text-center my-4"
-            xxl={2}
-            xl={2}
-            lg={2}
-            sm={3}
-            md={3}>
-                <Button
+            <Col
+              className="d-flex flex-column text-center my-4"
+              xxl={2}
+              xl={2}
+              lg={2}
+              sm={3}
+              md={3}
+            >
+              <Button
                 style={{ backgroundColor: "#0077B2", border: "none" }}
                 onClick={handleSearch}
                 disabled={isSearching}
               >
-                {isSearching ? 'Searching...' : 'Search'}
+                {isSearching ? "Searching..." : "Search"}
               </Button>
             </Col>
           </Row>
           <Row className="boxShadow p-4 mb-4">
             <BasicTable
-               COLUMNS={COLUMNS}
-               MOCK_DATA={data}
-               currentPage={currentPage}
-               startIndex={startIndex}
-               endIndex={endIndex}
-               setCurrentPage={setCurrentPage}
-               totalItems={totalItems}
-               totalPages={totalPages}
+              COLUMNS={COLUMNS}
+              MOCK_DATA={data}
+              currentPage={currentPage}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              setCurrentPage={setCurrentPage}
+              totalItems={totalItems}
+              totalPages={totalPages}
             />
           </Row>
         </Container>
       ) : (
         <Loader />
       )}
-     
     </div>
   );
 };

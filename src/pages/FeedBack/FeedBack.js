@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { MdDelete } from "react-icons/md";
-import BasicTable from "../../Components/TablePaginationComponent";
-import BasicHeader from "../../Components/BasicHeader";
-import DeleteModel from "../../Components/DeleteModel";
+import BasicTable from "../../../src/components/TablePaginationComponent";
+import BasicHeader from "../../../src/components/BasicHeader";
+import DeleteModel from "../../../src/components/DeleteModel";
 import { useGetFeedbackQuery, useDeleteFeedbackMutation } from "../../redux/features/api/FeedBackApi";
 import { toast } from "react-toastify";
 import Loader from "../../pages/loginForms/loader/Loader";

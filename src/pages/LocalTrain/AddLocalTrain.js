@@ -4,8 +4,8 @@ import { Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { LoaclTrainSchema } from "../../pages/LocalTrain/LocalTrainValidation";
-import BasicButton from "../../Components/BasicButton";
-import TextInput from "../../Components/TextInput";
+import BasicButton from "../../../src/components/BasicButton";
+import TextInput from "../../../src/components/TextInput";
 import { useAddLocalTrainMutation } from "../../redux/features/api/LocalTrainApi";
 import { toast } from "react-toastify";
 
@@ -26,7 +26,7 @@ const AddLocalTrain = () => {
   const [sClasses, setSClasses] = useState("");
   const [sRunsOn, setSRunsOn] = useState("");
   const [trainID, setTrainID] = useState("");
-  const [city, setCity] = useState("chennai"); 
+  const [city, setCity] = useState("chennai");
   const [AddLocalTrainData, { isLoading }] = useAddLocalTrainMutation();
   const navigate = useNavigate();
 
@@ -36,12 +36,12 @@ const AddLocalTrain = () => {
   console.log(city);
 
   useEffect(() => {
-    setCurrentDate(); 
-  }, []); 
+    setCurrentDate();
+  }, []);
 
   const setCurrentDate = () => {
-    const currentDate = new Date().toLocaleDateString('en-GB'); 
-    setUpdatedOn(currentDate); 
+    const currentDate = new Date().toLocaleDateString("en-GB");
+    setUpdatedOn(currentDate);
   };
 
   const initialValues = {
@@ -83,10 +83,10 @@ const AddLocalTrain = () => {
         sRunsOn: sRunsOn,
         trainID: trainID,
       };
-  
+
       // Log the data to check the payload
-      console.log('Request Payload:', data);
-  
+      console.log("Request Payload:", data);
+
       const response = await AddLocalTrainData({ data, city });
       if (response?.data) {
         toast.success(response?.data?.message, { autoClose: 1000 });
@@ -96,12 +96,11 @@ const AddLocalTrain = () => {
         toast.error(response?.error?.data.error, { autoClose: 1000 });
         console.log("else part");
         console.log(response.error);
-       }
+      }
     } catch (error) {
       console.error(error);
     }
   };
-
 
   return (
     <div>
@@ -331,35 +330,37 @@ const AddLocalTrain = () => {
                       />
                     </Col>
                     <Col
-      className="m-2"
-      lg="12"
-      xxl="12"
-      xl="12"
-      md="12"
-      sm="12"
-    >
-      <TextInput
-        label="Created On"
-        type=""
-        name="updatedOn"
-        value={updatedOn}
-        className={`form-control ${
-          touched.updatedOn && errors.updatedOn ? "is-invalid" : ""
-        }`}
-        onChange={(e) => {
-          setUpdatedOn(e.target.value);
-          handleChange(e);
-        }}
-        onBlur={handleBlur}
-        validation={
-          touched.updatedOn && errors.updatedOn ? (
-            <p className="text-danger">{errors.updatedOn}</p>
-          ) : (
-            ""
-          )
-        }
-      />
-    </Col>
+                      className="m-2"
+                      lg="12"
+                      xxl="12"
+                      xl="12"
+                      md="12"
+                      sm="12"
+                    >
+                      <TextInput
+                        label="Created On"
+                        type=""
+                        name="updatedOn"
+                        value={updatedOn}
+                        className={`form-control ${
+                          touched.updatedOn && errors.updatedOn
+                            ? "is-invalid"
+                            : ""
+                        }`}
+                        onChange={(e) => {
+                          setUpdatedOn(e.target.value);
+                          handleChange(e);
+                        }}
+                        onBlur={handleBlur}
+                        validation={
+                          touched.updatedOn && errors.updatedOn ? (
+                            <p className="text-danger">{errors.updatedOn}</p>
+                          ) : (
+                            ""
+                          )
+                        }
+                      />
+                    </Col>
                     <Col
                       className="m-2"
                       lg="12"

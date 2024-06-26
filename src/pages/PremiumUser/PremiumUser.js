@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import BasicTable from "../../Components/TablePaginationComponent";
-import BasicHeader from "../../Components/BasicHeader";
+import BasicTable from "../../../src/components/TablePaginationComponent";
+import BasicHeader from "../../../src/components/BasicHeader";
 import { useGetPremiumUserQuery } from "../../redux/features/api/PremiumUserApi";
 import Loader from "../../pages/loginForms/loader/Loader";
 import { BsSearch, BsX } from "react-icons/bs";
 import { format } from "date-fns";
 
 const PremiumUser = () => {
-
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [startIndex, setStartIndex] = useState(1);
@@ -16,9 +15,13 @@ const PremiumUser = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItem] = useState();
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchInput, setSearchInput] = useState(""); 
+  const [searchInput, setSearchInput] = useState("");
   const [isSearching, setIsSearching] = useState(false);
-  const { data: getPremiumUserData, isLoading ,refetch } = useGetPremiumUserQuery({ page: currentPage, search: searchTerm });
+  const {
+    data: getPremiumUserData,
+    isLoading,
+    refetch,
+  } = useGetPremiumUserQuery({ page: currentPage, search: searchTerm });
 
   useEffect(() => {
     if (getPremiumUserData && getPremiumUserData.data) {
@@ -26,38 +29,35 @@ const PremiumUser = () => {
       setStartIndex(getPremiumUserData.pagination.startIndex);
       setCurrentPage(currentPage);
       setTotalItem(getPremiumUserData.pagination.totalItems);
-      setEndIndex(getPremiumUserData.pagination.endIndex)
+      setEndIndex(getPremiumUserData.pagination.endIndex);
       setTotalPages(getPremiumUserData.pagination.totalPages);
     }
   }, [getPremiumUserData, currentPage]);
 
-console.log(getPremiumUserData);
+  console.log(getPremiumUserData);
   const handleClear = () => {
     setSearchInput("");
     setSearchTerm("");
   };
 
   const handleSearch = () => {
-    setIsSearching(true); 
+    setIsSearching(true);
     setSearchTerm(searchInput);
     refetch({ page: currentPage, search: searchInput }).then(() => {
-      setIsSearching(false); 
+      setIsSearching(false);
     });
   };
 
-  
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
   };
 
-
-
   const COLUMNS = [
     {
       Header: "ID",
-      accessor:"s_no",
+      accessor: "s_no",
     },
     {
       Header: "Phone Number",
@@ -67,7 +67,7 @@ console.log(getPremiumUserData);
       Header: "Amount",
       accessor: (row) => row.entity.amount / 100,
     },
-    
+
     {
       Header: "Transaction ID",
       accessor: "entity.id",
@@ -78,20 +78,20 @@ console.log(getPremiumUserData);
     },
     {
       Header: "Premium Starts",
-      accessor:"createdAt",
+      accessor: "createdAt",
       Cell: ({ value }) => {
-            const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
-            return <span>{formattedDateTime}</span>;
-          },
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
+        return <span>{formattedDateTime}</span>;
+      },
     },
     {
-        Header: "Premium Expiration",
-        accessor: "expiresAt",
-        Cell: ({ value }) => {
-            const formattedDateTime = format(new Date(value), 'dd-MM-yyyy hh:mm a');
-            return <span>{formattedDateTime}</span>;
-          },
+      Header: "Premium Expiration",
+      accessor: "expiresAt",
+      Cell: ({ value }) => {
+        const formattedDateTime = format(new Date(value), "dd-MM-yyyy hh:mm a");
+        return <span>{formattedDateTime}</span>;
       },
+    },
     //   {
     //     Header: "Type",
     //     accessor: "type",
@@ -104,8 +104,6 @@ console.log(getPremiumUserData);
     //     return <span>{formattedDateTime}</span>;
     //   },
     // },
-   
-   
   ];
 
   return (
@@ -114,7 +112,7 @@ console.log(getPremiumUserData);
         <Container fluid className="mt-3">
           <Row className="boxShadow p-4 mb-4 mt-4">
             <Col>
-            <BasicHeader HEADING="Premium User" />
+              <BasicHeader HEADING="Premium User" />
             </Col>
           </Row>
           {/* <hr className="mt-3 bg-primary ml-xxl-n2 ml-xl-n2 ml-lg-n2 "/> */}
@@ -139,38 +137,39 @@ console.log(getPremiumUserData);
                 )}
               </div>
             </Col>
-            <Col  className="d-flex flex-column text-center my-4"
-            xxl={2}
-            xl={2}
-            lg={2}
-            sm={3}
-            md={3}>
-                <Button
+            <Col
+              className="d-flex flex-column text-center my-4"
+              xxl={2}
+              xl={2}
+              lg={2}
+              sm={3}
+              md={3}
+            >
+              <Button
                 style={{ backgroundColor: "#0077B2", border: "none" }}
                 onClick={handleSearch}
                 disabled={isSearching}
               >
-                {isSearching ? 'Searching...' : 'Search'}
+                {isSearching ? "Searching..." : "Search"}
               </Button>
             </Col>
           </Row>
           <Row className="boxShadow p-4 mb-4">
             <BasicTable
-               COLUMNS={COLUMNS}
-               MOCK_DATA={data}
-               currentPage={currentPage}
-               startIndex={startIndex}
-               endIndex={endIndex}
-               setCurrentPage={setCurrentPage}
-               totalItems={totalItems}
-               totalPages={totalPages}
+              COLUMNS={COLUMNS}
+              MOCK_DATA={data}
+              currentPage={currentPage}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              setCurrentPage={setCurrentPage}
+              totalItems={totalItems}
+              totalPages={totalPages}
             />
           </Row>
         </Container>
       ) : (
         <Loader />
       )}
-     
     </div>
   );
 };
