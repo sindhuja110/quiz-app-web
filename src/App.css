@@ -122,6 +122,43 @@
   }
 }
 
+/* contact.css */
+
+
+.contact-page {
+  background: url('./assets/images/mainimage.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-page h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF9900; /* Match the title color */
+}
+
+.contact-page .form-label {
+  color: #FFF;
+}
+
+.contact-page .form-control {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-page .btn-warning {
+  background-color: #FF9900;
+  border-color: #FF9900;
+  font-weight: bold;
+}
+
+.contact-page .btn-warning:hover {
+  background-color: #e68a00;
+  border-color: #e68a00;
+}
+
 /* content.css */
 
 .content-section {
