@@ -2,6 +2,32 @@
   font-family: "Comic Sans MS", "cursive", sans-serif;
 }
 
+/* navbar.css */
+
+.navbar-custom {
+  height: 60px; /* Adjust the height as needed */
+  padding-top: 0; /* Remove top padding */
+  padding-bottom: 0; /* Remove bottom padding */
+}
+
+.navbar-custom .navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-custom .navbar-brand img {
+  height: 40px; /* Adjust the logo height if needed */
+}
+
+.navbar-custom .navbar-collapse {
+  height: 100%;
+}
+
+.navbar-custom .nav-link {
+  line-height: 60px; /* Match the height of the navbar */
+}
+
 /* mainpage.css */
 
 .main-content {
@@ -96,6 +122,55 @@
   }
 }
 
+/* contact.css */
+
+
+.contact-page {
+  background: url('./assets/images/mainimage.jpg') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-page h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF9900; /* Match the title color */
+}
+
+.contact-page .form-label {
+  color: #FFF;
+}
+
+.contact-page .form-control {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-page .btn-warning {
+  background-color: #FF9900;
+  border-color: #FF9900;
+  font-weight: bold;
+}
+
+.contact-page .btn-warning:hover {
+  background-color: #e68a00;
+  border-color: #e68a00;
+}
+
+
+.privacy-page h1, .privacy-page h2,
+.privacy-page h4 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF9900;
+}
+
+
+
+
+
 /* content.css */
 
 .content-section {
@@ -181,7 +256,8 @@
   margin: 0 10px;
   font-size: 1.5em;
 }
-.footer-section .social-icons a :hover {
+
+.footer-section .social-icons a:hover {
   color: #00c2ff;
   transform: scale(1.2); /* Increase size on hover */
   transition: all 0.3s ease; /* Add smooth transition effect */

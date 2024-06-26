@@ -1,13 +1,13 @@
 import { Row, Col, Container } from "react-bootstrap";
-import MissionImage from "../../Assets/companylogo.png";
-import ServiceImage from "../../Assets/companylogo.png";
-// import Footer from "./footer";
-// import Header from "./header";
+import MissionImage from "../../assets/images/companylogo.png";
+import ServiceImage from "../../assets/images/companylogo.png";
+import Footer from "./footer";
+import Header from "./header";
 
 const AboutUs = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       {/* ----------------About row start---------------- */}
       <div className="Aboutus-row">
         <Container className="">
@@ -195,7 +195,7 @@ const AboutUs = () => {
         </Row>
       </Container>
       {/* <---Driven by Better Service row end---------> */}
-      {/* <Footer /> */}
+      <Footer />
       </div>
   );
 };

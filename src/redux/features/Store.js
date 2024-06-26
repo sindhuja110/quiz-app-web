@@ -6,7 +6,7 @@ import { StationApi } from "./api/StationApi";
 import { DashboardApi } from "./api/DashboardApi";
 import { UserListApi } from "./api/UserListApi";
 import { WithdrawrequestApi } from "./api/WithdrawRequestApi";
-import { TransactionhistoryApi} from "./api/TransactionHistoryApi";
+import { TransactionhistoryApi } from "./api/TransactionHistoryApi";
 import { IssueApi } from "./api/IssueApi";
 import { FeedbackApi } from "./api/FeedBackApi";
 import { IndividualNotificationApi } from "./api/IndividualNotificationApi";
@@ -23,8 +23,7 @@ import { CoachPositionApi } from "./api/CoachPositionApi";
 import { FareComparisonApi } from "./api/FareComparisonAPI";
 import { RewardsApi } from "./api/RewardsApi";
 import { PremiumUserApi } from "./api/PremiumUserApi";
-
-
+import { ContactUsApi } from "./api/ContactUs";
 
 export const store = configureStore({
   reducer: {
@@ -38,20 +37,21 @@ export const store = configureStore({
     [DashboardApi.reducerPath]: DashboardApi.reducer,
     [WithdrawrequestApi.reducerPath]: WithdrawrequestApi.reducer,
     [TransactionhistoryApi.reducerPath]: TransactionhistoryApi.reducer,
-    [IssueApi.reducerPath]:IssueApi.reducer,
-    [IndividualNotificationApi.reducerPath]:IndividualNotificationApi.reducer,
-    [GroupNotificationApi.reducerPath]:GroupNotificationApi.reducer,
-    [GroupApi.reducerPath]:GroupApi.reducer,
-    [NewsApi.reducerPath]:NewsApi.reducer,
-    [LocalTrainApi.reducerPath]:LocalTrainApi.reducer,
-    [MetroTrainApi.reducerPath]:MetroTrainApi.reducer,
-    [SettingImageApi.reducerPath]:SettingImageApi.reducer,
-    [RatingsApi.reducerPath]:RatingsApi.reducer,
-    [PnrStatusApi.reducerPath]:PnrStatusApi.reducer,
-    [CoachPositionApi.reducerPath]:CoachPositionApi.reducer,
-    [FareComparisonApi.reducerPath]:FareComparisonApi.reducer,
-    [RewardsApi.reducerPath]:RewardsApi.reducer,
-    [PremiumUserApi.reducerPath]:PremiumUserApi.reducer,
+    [IssueApi.reducerPath]: IssueApi.reducer,
+    [IndividualNotificationApi.reducerPath]: IndividualNotificationApi.reducer,
+    [GroupNotificationApi.reducerPath]: GroupNotificationApi.reducer,
+    [GroupApi.reducerPath]: GroupApi.reducer,
+    [NewsApi.reducerPath]: NewsApi.reducer,
+    [LocalTrainApi.reducerPath]: LocalTrainApi.reducer,
+    [MetroTrainApi.reducerPath]: MetroTrainApi.reducer,
+    [SettingImageApi.reducerPath]: SettingImageApi.reducer,
+    [RatingsApi.reducerPath]: RatingsApi.reducer,
+    [PnrStatusApi.reducerPath]: PnrStatusApi.reducer,
+    [CoachPositionApi.reducerPath]: CoachPositionApi.reducer,
+    [FareComparisonApi.reducerPath]: FareComparisonApi.reducer,
+    [RewardsApi.reducerPath]: RewardsApi.reducer,
+    [PremiumUserApi.reducerPath]: PremiumUserApi.reducer,
+    [ContactUsApi.reducerPath]: ContactUsApi.reducer,
   },
   devTools: process.env.NODE_ENV === "development",
   middleware: (getDefaultMiddleware) =>
@@ -79,5 +79,6 @@ export const store = configureStore({
       FareComparisonApi.middleware,
       RewardsApi.middleware,
       PremiumUserApi.middleware,
+      ContactUsApi.middleware,
     ]),
 });
