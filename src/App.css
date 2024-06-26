@@ -159,6 +159,18 @@
   border-color: #e68a00;
 }
 
+
+.privacy-page h1, .privacy-page h2,
+.privacy-page h4 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF9900;
+}
+
+
+
+
+
 /* content.css */
 
 .content-section {
@@ -244,7 +256,8 @@
   margin: 0 10px;
   font-size: 1.5em;
 }
-.footer-section .social-icons a :hover {
+
+.footer-section .social-icons a:hover {
   color: #00c2ff;
   transform: scale(1.2); /* Increase size on hover */
   transition: all 0.3s ease; /* Add smooth transition effect */
