@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import logo from '../../Assets/companylogo.png';  // Import your logo
+import logo from '../../assets/images/companylogo.png';  // Import your logo
 
 const AppBarHeader = () => {
   return (

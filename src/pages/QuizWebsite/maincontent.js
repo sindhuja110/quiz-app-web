@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import playstore from "../../Assets/play-store-badge-.webp";
-import HomeImage from "../../Assets/mainimage.jpg";
+import playstore from "../../assets/images/play-store-badge-.webp";
+import HomeImage from "../../assets/images/mainimage.jpg";
 
 const Maincontent = () => {
   return (
