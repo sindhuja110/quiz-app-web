@@ -1,7 +1,7 @@
 import React from "react";
-import Birds from "../../Assets/Maths.webp";
-import Animals from "../../Assets/Maths.webp";
-import Sounds from "../../Assets/Maths.webp";
+import Birds from "../../assets/images/Maths.webp";
+import Animals from "../../assets/images/Maths.webp";
+import Sounds from "../../assets/images/Maths.webp";
 import { Col, Container, Row } from "react-bootstrap";
 
 const Kidslearn = () => {

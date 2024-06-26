@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Chooseimage from "../../Assets/companylogo.png";
+import Chooseimage from "../../assets/images/companylogo.png";
 
 const WhyChooseOurs = () => {
   return (

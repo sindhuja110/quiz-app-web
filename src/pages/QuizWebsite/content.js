@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Button, Container } from 'react-bootstrap';
-import learnimages from '../../Assets/companylogo.png'
+import learnimages from '../../assets/images/companylogo.png'
 
 function Content() {
   return (
