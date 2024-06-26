@@ -37,24 +37,32 @@ export default function Router() {
             </GuestGuard>
           ),
         },
-        // {
-        //   path: "/privacy-policy",
-        //   element: (
-        //     <GuestGuard>
-        //       <PrivacyPolicy />
-        //     </GuestGuard>
-        //   ),
-        // },
-        // {
-        //   path: "/terms-use",
-        //   element: (
-        //     <GuestGuard>
-        //       <TermUse />
-        //     </GuestGuard>
-        //   ),
-        // },
+        {
+          path: "/privacy-policy",
+          element: (
+            <GuestGuard>
+              <PrivacyPolicy />
+            </GuestGuard>
+          ),
+        },
+        {
+          path: "/terms-use",
+          element: (
+            <GuestGuard>
+              <TermsAndConditions />
+            </GuestGuard>
+          ),
+        },
       
-        
+        {
+          path: "/features",
+          element: (
+            <GuestGuard>
+              <KidsQuizAppFeatures />
+            </GuestGuard>
+          ),
+        },
+    
         
         {
           path: "/about-us",
@@ -72,6 +80,15 @@ export default function Router() {
             </GuestGuard>
           ),
         },
+        {
+          path: "/contact-us",
+          element: (
+            <GuestGuard>
+              <ContactUs />
+            </GuestGuard>
+          ),
+        },
+   
       
        
         
@@ -416,10 +433,10 @@ const PremiumUser = Loadable(
 // const TrainsOnWheels = Loadable(
 //   lazy(() => import("../pages/TrainWebsite/TrainsOnWheels/TrainsOnWheels"))
 // );
-// const PrivacyPolicy = Loadable(
-//   lazy(() => import("../pages/TrainWebsite/PrivacyPolicy"))
-// );
-// const TermsUse = Loadable(lazy(() => import("../pages/TrainWebsite/TermsUse")));
+const PrivacyPolicy = Loadable(
+  lazy(() => import("../pages/QuizWebsite/privacypolicy/PrivacyPolicy"))
+);
+const TermsAndConditions = Loadable(lazy(() => import("../pages/QuizWebsite/terms&condition/terms&condition")));
 // const PnrStatus = Loadable(
 //   lazy(() => import("../pages/TrainWebsite/PnrStatus/PnrStatus"))
 // );
@@ -430,12 +447,12 @@ const AboutUs = Loadable(
   lazy(() => import("../pages/QuizWebsite/aboutUs"))
 );
 const Faq = Loadable(lazy(() => import("../pages/QuizWebsite/faqPage")));
-// const Fare = Loadable(
-//   lazy(() => import("../pages/TrainWebsite/FareCalculator/Fare"))
-// );
-// const FareComparison = Loadable(
-//   lazy(() => import("../pages/TrainWebsite/FareComparison/FareComparison"))
-// );
+const ContactUs = Loadable(
+  lazy(() => import("../pages/QuizWebsite/contact/contact"))
+);
+const KidsQuizAppFeatures = Loadable(
+  lazy(() => import("../pages/QuizWebsite/features/OurFeatures"))
+);
 // const SeatAvailability = Loadable(
 //   lazy(() => import("../pages/TrainWebsite/SeatAvailability/SeatAvailability"))
 // );
