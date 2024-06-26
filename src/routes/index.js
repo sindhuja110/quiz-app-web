@@ -56,22 +56,22 @@ export default function Router() {
       
         
         
-        // {
-        //   path: "/about-us",
-        //   element: (
-        //     <GuestGuard>
-        //       <AboutUs />
-        //     </GuestGuard>
-        //   ),
-        // },
-        // {
-        //   path: "/faq",
-        //   element: (
-        //     <GuestGuard>
-        //       <FAQ />
-        //     </GuestGuard>
-        //   ),
-        // },
+        {
+          path: "/about-us",
+          element: (
+            <GuestGuard>
+              <AboutUs />
+            </GuestGuard>
+          ),
+        },
+        {
+          path: "/faq",
+          element: (
+            <GuestGuard>
+              <Faq />
+            </GuestGuard>
+          ),
+        },
       
        
         
@@ -424,11 +424,12 @@ const PremiumUser = Loadable(
 //   lazy(() => import("../pages/TrainWebsite/PnrStatus/PnrStatus"))
 // );
 
+// website routes
 
-// const AboutUs = Loadable(
-//   lazy(() => import("../pages/TrainWebsite/AboutUs/AboutUs"))
-// );
-// const FAQ = Loadable(lazy(() => import("../pages/TrainWebsite/FAQ/Faq")));
+const AboutUs = Loadable(
+  lazy(() => import("../pages/QuizWebsite/aboutUs"))
+);
+const Faq = Loadable(lazy(() => import("../pages/QuizWebsite/faqPage")));
 // const Fare = Loadable(
 //   lazy(() => import("../pages/TrainWebsite/FareCalculator/Fare"))
 // );
