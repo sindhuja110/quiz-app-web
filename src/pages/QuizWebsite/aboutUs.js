@@ -16,7 +16,7 @@ const AboutUs = () => {
               <h1
                 style={{
                   textAlign: "center",
-                  fontFamily: "'Comic Sans MS', cursive, sans-serif",
+                  color:'#FF6F61'
                 }}
               >
                 About Us
@@ -34,13 +34,13 @@ const AboutUs = () => {
             <h2
               className="mb-3"
               style={{
-                fontSize: "24px",
-                color: "#FF6F61",
-                letterSpacing: "1px",
+                fontWeight: "bolder",
                 textAlign: "center",
+                fontSize: "24px",
+                color: "#1d3356",
+                textDecorationLine:'underline',
+                letterSpacing: "1px",
                 textTransform: "uppercase",
-                fontWeight: "bold",
-                fontFamily: "'Comic Sans MS', cursive, sans-serif",
               }}
             >
               Welcome to FunQuiz Kids App!
@@ -106,13 +106,13 @@ const AboutUs = () => {
           <Col xs={12} lg={6} className="mt-4 mt-lg-0">
             <h2
               style={{
-                fontWeight: "bold",
+                fontWeight: "bolder",
                 textAlign: "center",
                 fontSize: "24px",
-                color: "#FF6F61",
+                color: "#1d3356",
+                textDecorationLine:'underline',
                 letterSpacing: "1px",
                 textTransform: "uppercase",
-                fontFamily: "'Comic Sans MS', cursive, sans-serif",
               }}
             >
               Our Mission
@@ -165,13 +165,13 @@ const AboutUs = () => {
           <Col xs={12} lg={6} className="mt-4 mt-lg-0">
             <h2
               style={{
-                fontWeight: "bold",
+                fontWeight: "bolder",
                 textAlign: "center",
                 fontSize: "24px",
-                color: "#FF6F61",
+                color: "#1d3356",
+                textDecorationLine:'underline',
                 letterSpacing: "1px",
                 textTransform: "uppercase",
-                fontFamily: "'Comic Sans MS', cursive, sans-serif",
               }}
             >
               Driven by Fun and Learning

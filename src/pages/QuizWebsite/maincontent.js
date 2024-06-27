@@ -5,7 +5,7 @@ import HomeImage from "../../assets/images/mainimage.jpg";
 
 const Maincontent = () => {
   return (
-    <div className="bg-custom">
+    <div className="bg-custom hero-header">
       <Container>
         <Row>
           <Col xs={12} lg={6} className="text-center mt-5 ">
@@ -26,8 +26,8 @@ const Maincontent = () => {
             >
               <img
                 src={playstore}
-                alt="Kids Quiz App Google Play"
-                title="Kids Quiz App Google Play"
+                alt="Quiz Time App Google Play"
+                title="Quiz Time App Google Play"
                 style={{ width: "150px", height: "auto" }}
               />
             </a>

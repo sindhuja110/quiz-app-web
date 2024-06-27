@@ -1,13 +1,25 @@
 * {
   font-family: "Comic Sans MS", "cursive", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
 }
+.bg-custom{
+  background-color: #6B78B7 !important;
+}
+
+/* .hero-header {
+  background: url('./assets/images/companylogo.png'), url('./assets/images/companylogo.png'), url('./assets/images/companylogo.png'), url('./assets/images/mainimage.jpg'), url('./assets/images/mainimage.jpg');
+  background-position: 10px 10px, bottom 190px right 10px, left 55% top -1px, left 45% bottom -1px, center bottom -1px;
+  background-repeat: no-repeat;
+  margin-top:55px;
+} */
 
 /* navbar.css */
 
 .navbar-custom {
-  height: 60px; /* Adjust the height as needed */
-  padding-top: 0; /* Remove top padding */
-  padding-bottom: 0; /* Remove bottom padding */
+  height: 60px; 
+  padding-top: 0; 
+  padding-bottom: 0; 
 }
 
 .navbar-custom .navbar-brand {
@@ -17,7 +29,7 @@
 }
 
 .navbar-custom .navbar-brand img {
-  height: 40px; /* Adjust the logo height if needed */
+  height: 40px; 
 }
 
 .navbar-custom .navbar-collapse {
@@ -137,7 +149,7 @@
 .contact-page h1 {
   margin-bottom: 20px;
   font-weight: bold;
-  color: #FF9900; /* Match the title color */
+  color: #FF6F61; /* Match the title color */
 }
 
 .contact-page .form-label {
@@ -149,8 +161,8 @@
 }
 
 .contact-page .btn-warning {
-  background-color: #FF9900;
-  border-color: #FF9900;
+  background-color: #FF6F61;
+  border-color: #FF6F61;
   font-weight: bold;
 }
 
@@ -164,7 +176,7 @@
 .privacy-page h4 {
   margin-bottom: 20px;
   font-weight: bold;
-  color: #FF9900;
+  color: #FF6F61;
 }
 
 
@@ -256,6 +268,11 @@
   margin: 0 10px;
   font-size: 1.5em;
 }
+
+.social-icons a .fa-icon {
+  font-size: 35px; /* Adjust this value to the desired size */
+}
+
 
 .footer-section .social-icons a:hover {
   color: #00c2ff;

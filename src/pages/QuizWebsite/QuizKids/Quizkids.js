@@ -4,7 +4,6 @@ import Footer from "../footer";
 import Kidslearn from "../kidsLear";
 import AppBarHeader from "../header";
 import MainContent from "../maincontent";
-import Content from "../content";
 import WhyChooseOurs from "../ChooseOurs";
 import DownloadAppSection from '../downloadApp';
 
@@ -25,7 +24,6 @@ export const Quizkids = () => {
           <AppBarHeader />
           <MainContent />
           <WhyChooseOurs/>
-          <Content />
           <Kidslearn />
           <DownloadAppSection/>
           <Footer />

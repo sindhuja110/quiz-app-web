@@ -1,7 +1,17 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Ratings from "../../assets/images/Kids-playing.avif";
+import mainimag from "../../assets/images/walkanime.json";
 import playstore from "../../assets/images/play-store-badge-.webp";
+import Lottie from "react-lottie";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: mainimag,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const DownloadAppSection = () => {
   return (
@@ -15,28 +25,9 @@ const DownloadAppSection = () => {
             xxl={6}
             md={6}
             lg={6}
-            className="fade-in-up mt-4"
-            data-wow-delay="0.1s "
+            className="fade-in-up mt-4 text-center"
+            data-wow-delay="0.1s"
           >
-            {" "}
-            <img
-              className="img-fluid wow zoomIn"
-              data-wow-delay="0.5s"
-              src={Ratings}
-              alt="Flawk"
-            />
-          </Col>
-          <Col
-            xs={12}
-            xl={6}
-            sm={12}
-            xxl={6}
-            md={6}
-            lg={6}
-            className="fade-in-up mt-4"
-            data-wow-delay="0.1s "
-          >
-            {" "}
             <div className="section-title position-relative mb-4 pb-2">
               <h1 className="mt-2">
                 <br />
@@ -53,16 +44,34 @@ const DownloadAppSection = () => {
               schedules, betting odds, player stats, and more at your
               fingertips."
             </p>
-            <img
-              src={playstore}
-              alt="playstore"
-              srcSet=""
-              style={{ Width: "40px", height: "40px" }}
-            />
+            <a
+              href="https://play.google.com/store/apps/details?id="
+              target="blank"
+            >
+              <img
+                src={playstore}
+                alt="Quiz Time App Google Play"
+                title="Quiz Time App Google Play"
+                style={{ width: "150px", height: "auto" }}
+              />
+            </a>
+          </Col>
+          <Col
+            xs={12}
+            xl={6}
+            sm={12}
+            xxl={6}
+            md={6}
+            lg={6}
+            className="d-flex justify-content-center align-items-center fade-in-up mt-4"
+            data-wow-delay="0.1s"
+          >
+            <Lottie options={defaultOptions} style={{ width: '100%', maxWidth: '500px', height: '250px' }} />
           </Col>
         </Row>
       </Container>
     </div>
   );
 };
+
 export default DownloadAppSection;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import logo from '../../assets/images/companylogo.png';
+import logo from '../../assets/images/logo.png';
 
 const AppBarHeader = () => {
   return (
@@ -15,7 +15,7 @@ const AppBarHeader = () => {
               className="d-inline-block align-top"
               alt="Driftmark Technology logo"
             />
-            <span className="ml-0">Driftmark Technology</span>
+            <span className="m-3">Quiz Time</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
