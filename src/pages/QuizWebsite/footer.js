@@ -9,13 +9,13 @@ const Footer = () => {
   return (
     <footer className="footer d-flex flex-row justify-content-between">
       <Container>
-        <Row className="d-flex flex-row justify-content-center align-items-center">
+        <Row className="d-flex flex-row justify-content-center align-items-center mt-3">
           <Col md={3} className="footer-section border-right text-center">
             <img src={logoimage} alt="Driftmark Logo" className="logo" />
             <p>
               <strong>Driftmark Technology</strong>
             </p>
-            <p>© Copyright 2024 Driftmark Technology. All rights reserved.</p>
+            <p>Where ideas become Digital Reality</p>
           </Col>
           <Col md={2} className="footer-section border-right">
             <h4>Company</h4>
@@ -85,13 +85,24 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon icon={faWhatsapp} size="2x" className="fa-icon" />
+                <FontAwesomeIcon
+                  icon={faWhatsapp}
+                  size="2x"
+                  className="fa-icon"
+                />
               </a>
               <a href="mailto:driftmarktechnology@gmail.com">
-                <FontAwesomeIcon icon={faEnvelope} size="2x" className="fa-icon" />
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  size="2x"
+                  className="fa-icon"
+                />
               </a>
             </div>
           </Col>
+        </Row>
+        <Row className="d-flex flex-row justify-content-center align-items-center text-center mt-3">
+          <p>© Copyright 2024 Driftmark Technology. All rights reserved.</p>
         </Row>
       </Container>
     </footer>
