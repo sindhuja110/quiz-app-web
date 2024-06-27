@@ -5,7 +5,7 @@ import HomeImage from "../../assets/images/mainimage.jpg";
 
 const Maincontent = () => {
   return (
-    <div className="bg-custom">
+    <div className="bg-custom hero-header">
       <Container>
         <Row>
           <Col xs={12} lg={6} className="text-center mt-5 ">
