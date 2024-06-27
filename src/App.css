@@ -138,7 +138,7 @@
 .contact-page h1 {
   margin-bottom: 20px;
   font-weight: bold;
-  color: #FF9900; /* Match the title color */
+  color: #FF6F61; /* Match the title color */
 }
 
 .contact-page .form-label {
@@ -150,8 +150,8 @@
 }
 
 .contact-page .btn-warning {
-  background-color: #FF9900;
-  border-color: #FF9900;
+  background-color: #FF6F61;
+  border-color: #FF6F61;
   font-weight: bold;
 }
 
@@ -165,7 +165,7 @@
 .privacy-page h4 {
   margin-bottom: 20px;
   font-weight: bold;
-  color: #FF9900;
+  color: #FF6F61;
 }
 
 

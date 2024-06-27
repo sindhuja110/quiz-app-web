@@ -87,27 +87,26 @@ const Faq = () => {
               className="d-flex justify-content-center align-items-center"
               style={{
                 fontSize: '45px',
-                color: '#6B78B7',
                 letterSpacing: '1px',
                 fontWeight: 'bold',
+                color: '#FF6F61',
               }}
             >
               FAQ
             </h1>
           </Col>
         </Row>
-        <div className="mb-5">
+        <div className="mb-5 mt-5">
           {questions.map((question, index) => (
             <div
               key={question.id}
-              style={{ marginBottom: '10px', border: '1px solid #425486' }}
+              style={{ marginBottom: '10px', border: '1px solid #FF6F61' }}
             >
               <div
                 className="d-flex align-items-center"
                 style={{
                   padding: '10px',
                   fontSize: '20px',
-                  color: '#6B78B7',
                   letterSpacing: '1px',
                   cursor: 'pointer',
                 }}
@@ -117,14 +116,13 @@ const Faq = () => {
                 <span className={`faq-question ${isOpen[index] ? 'open' : ''}`}>
                   {question.title}
                 </span>
-                {isOpen[index] ? <FaMinus /> : <FaPlus />}
+                {isOpen[index] ? <FaMinus color='#FF6F61' /> : <FaPlus color='#FF6F61' />}
               </div>
               {isOpen[index] && (
                 <div
                   style={{
                     padding: '10px',
                     fontSize: '16px',
-                    color: '#000',
                     letterSpacing: '1px',
                   }}
                 >

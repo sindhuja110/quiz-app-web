@@ -59,7 +59,7 @@ const Contact = () => {
         <Container>
           <Row className="justify-content-center">
             <Col xs={12} md={8} lg={6}>
-              <h1 className="text-center mb-4">Contact Us</h1>
+              <h1 className="text-center mb-4" >Contact Us</h1>
               <Formik
                 initialValues={{ name: "", email: "", phone: "", message: "" }}
                 validationSchema={ContactUsSchema}
