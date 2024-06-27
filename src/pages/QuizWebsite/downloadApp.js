@@ -53,12 +53,17 @@ const DownloadAppSection = () => {
               schedules, betting odds, player stats, and more at your
               fingertips."
             </p>
-            <img
-              src={playstore}
-              alt="playstore"
-              srcSet=""
-              style={{ Width: "40px", height: "40px" }}
-            />
+            <a
+              href="https://play.google.com/store/apps/details?id="
+              target="blank"
+            >
+              <img
+                src={playstore}
+                alt="Quiz Time App Google Play"
+                title="Quiz Time App Google Play"
+                style={{ width: "150px", height: "auto" }}
+              />
+            </a>
           </Col>
         </Row>
       </Container>

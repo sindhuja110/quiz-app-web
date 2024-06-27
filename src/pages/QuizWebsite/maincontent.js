@@ -26,8 +26,8 @@ const Maincontent = () => {
             >
               <img
                 src={playstore}
-                alt="Kids Quiz App Google Play"
-                title="Kids Quiz App Google Play"
+                alt="Quiz Time App Google Play"
+                title="Quiz Time App Google Play"
                 style={{ width: "150px", height: "auto" }}
               />
             </a>
