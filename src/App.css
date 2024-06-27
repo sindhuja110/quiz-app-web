@@ -1,13 +1,14 @@
 * {
   font-family: "Comic Sans MS", "cursive", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
 }
-
 /* navbar.css */
 
 .navbar-custom {
-  height: 60px; /* Adjust the height as needed */
-  padding-top: 0; /* Remove top padding */
-  padding-bottom: 0; /* Remove bottom padding */
+  height: 60px; 
+  padding-top: 0; 
+  padding-bottom: 0; 
 }
 
 .navbar-custom .navbar-brand {
@@ -17,7 +18,7 @@
 }
 
 .navbar-custom .navbar-brand img {
-  height: 40px; /* Adjust the logo height if needed */
+  height: 40px; 
 }
 
 .navbar-custom .navbar-collapse {
