@@ -75,9 +75,11 @@ const Footer = () => {
             </ul>
           </Col>
           <Col md={2} className="footer-section last-section">
+          <a href="https://play.google.com/store/apps/details?id=" target='blank'>
             <Button variant="outline-light" className="app-button">
               Get the app
             </Button>
+            </a>
             <br />
             <div className="social-icons">
               <a

@@ -6,6 +6,7 @@ import MainContent from "../maincontent";
 import WhyChooseOurs from "../ChooseOurs";
 import DownloadAppSection from '../downloadApp';
 import LearningPage from '../learningPage';
+import HorizontalScrollCards from '../scrollable';
 
 export const Quizkids = () => {
   return (
@@ -25,6 +26,7 @@ export const Quizkids = () => {
           <MainContent />
           <WhyChooseOurs/>
           <LearningPage/>
+          <HorizontalScrollCards/>
           <DownloadAppSection/>
           <Footer />
 
