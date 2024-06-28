@@ -68,7 +68,7 @@ const DownloadAppSection = () => {
           >
             <Lottie
               options={defaultOptions}
-              style={{ width: "100%", maxWidth: "500px", height: "250px" }}
+              style={{ width: "100%", height:'100%', maxWidth: "500px", maxHeight: "250px" }}
             />
           </Col>
         </Row>
