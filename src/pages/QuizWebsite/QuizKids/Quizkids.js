@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container, Row, Col } from "react-bootstrap";
 import Footer from "../footer";
-import Kidslearn from "../kidsLear";
 import AppBarHeader from "../header";
 import MainContent from "../maincontent";
 import WhyChooseOurs from "../ChooseOurs";
 import DownloadAppSection from '../downloadApp';
+import LearningPage from '../learningPage';
 
 export const Quizkids = () => {
   return (
@@ -24,7 +24,7 @@ export const Quizkids = () => {
           <AppBarHeader />
           <MainContent />
           <WhyChooseOurs/>
-          <Kidslearn />
+          <LearningPage/>
           <DownloadAppSection/>
           <Footer />
 

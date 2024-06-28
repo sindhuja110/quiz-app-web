@@ -3,9 +3,7 @@
   font-size: 20px;
   font-weight: 500;
 }
-.bg-custom{
-  background-color: #6B78B7 !important;
-}
+
 
 /* .hero-header {
   background: url('./assets/images/companylogo.png'), url('./assets/images/companylogo.png'), url('./assets/images/companylogo.png'), url('./assets/images/mainimage.jpg'), url('./assets/images/mainimage.jpg');
@@ -41,6 +39,18 @@
 }
 
 /* mainpage.css */
+
+
+.bg-custom h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #1d3356;
+}
+
+
+.bg-custom{
+  background-color: #6B78B7 !important;
+}
 
 .main-content {
   text-align: center;
@@ -180,37 +190,37 @@
 }
 
 
+/* learnig.css */
 
-
-
-/* content.css */
-
-.content-section {
-  padding: 50px 15px;
-}
-
-.content-title {
-  color: #f56a00;
-  font-weight: bold;
+.learn-page h1 {
   margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF6F61; /* Match the title color */
 }
 
-.content-text {
-  font-size: 18px;
-  color: #4d4d4d;
-  margin-bottom: 30px;
+.learn-page h4 {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #1d3356; 
 }
 
-.img-fluid {
-  max-width: 100%;
-  height: auto;
+/* choosus.css */
+
+.choose-page h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF6F61; 
 }
 
-@media (max-width: 768px) {
-  .content-section {
-    text-align: center;
-  }
+/* download.css */
+
+.download-page h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF6F61; 
 }
+
+
 /*faq.css*/
 
 .faq-question {
