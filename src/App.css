@@ -3,9 +3,7 @@
   font-size: 20px;
   font-weight: 500;
 }
-.bg-custom{
-  background-color: #6B78B7 !important;
-}
+
 
 /* .hero-header {
   background: url('./assets/images/companylogo.png'), url('./assets/images/companylogo.png'), url('./assets/images/companylogo.png'), url('./assets/images/mainimage.jpg'), url('./assets/images/mainimage.jpg');
@@ -41,6 +39,18 @@
 }
 
 /* mainpage.css */
+
+
+.bg-custom h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #1d3356;
+}
+
+
+.bg-custom{
+  background-color: #6B78B7 !important;
+}
 
 .main-content {
   text-align: center;
@@ -180,37 +190,74 @@
 }
 
 
+/* learnig.css */
 
-
-
-/* content.css */
-
-.content-section {
-  padding: 50px 15px;
-}
-
-.content-title {
-  color: #f56a00;
-  font-weight: bold;
+.learn-page h1 {
   margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF6F61; /* Match the title color */
 }
 
-.content-text {
-  font-size: 18px;
-  color: #4d4d4d;
-  margin-bottom: 30px;
+.learn-page h4 {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #1d3356; 
 }
 
-.img-fluid {
-  max-width: 100%;
+/* choosus.css */
+
+.choose-page h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF6F61; 
+}
+
+/* download.css */
+
+.download-page h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF6F61; 
+}
+
+/* HorizontalScrollCarousel.css */
+
+.carousel h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #FF6F61; 
+}
+
+.carousel-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Ensure the content takes the full width */
+}
+
+.carousel-content img {
+  width: 200px; /* Adjust the width as needed */
   height: auto;
+  margin-right: 20px; /* Space between the image and text */
 }
 
-@media (max-width: 768px) {
-  .content-section {
-    text-align: center;
-  }
+.carousel-text {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  color: #fff;
+  text-align: left;
 }
+
+.carousel-text h5 {
+  font-size: 1.5rem;
+}
+
+.carousel-text p {
+  font-size: 1rem;
+}
+
 /*faq.css*/
 
 .faq-question {

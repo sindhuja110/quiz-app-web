@@ -16,7 +16,7 @@ const defaultOptions = {
 const DownloadAppSection = () => {
   return (
     <div>
-      <Container className="mt-4 mb-4">
+      <Container className="mt-4 mb-4 download-page">
         <Row>
           <Col
             xs={12}
@@ -66,7 +66,10 @@ const DownloadAppSection = () => {
             className="d-flex justify-content-center align-items-center fade-in-up mt-4"
             data-wow-delay="0.1s"
           >
-            <Lottie options={defaultOptions} style={{ width: '100%', maxWidth: '500px', height: '250px' }} />
+            <Lottie
+              options={defaultOptions}
+              style={{ width: "100%", maxWidth: "500px", height: "250px" }}
+            />
           </Col>
         </Row>
       </Container>
