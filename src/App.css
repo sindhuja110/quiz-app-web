@@ -12,12 +12,21 @@
   margin-top:55px;
 } */
 
-/* navbar.css */
+
+/* header.css */
+
+.app-bar-header {
+  width: 100%;
+  background-color: #1d3356;
+  margin-bottom: 56px; 
+}
 
 .navbar-custom {
   height: 60px; 
   padding-top: 0; 
   padding-bottom: 0; 
+  background-color: #1d3356;
+  z-index: 1000;
 }
 
 .navbar-custom .navbar-brand {
@@ -37,6 +46,53 @@
 .navbar-custom .nav-link {
   line-height: 60px; /* Match the height of the navbar */
 }
+
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: white !important;
+}
+
+.navbar-custom .nav-link {
+  margin-left: 0.5rem;
+}
+
+.navbar-custom .navbar-toggler {
+  border-color: white;
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%281, 1, 1, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-custom .download-link .btn {
+  color: white;
+  border-color: white;
+}
+
+@media (max-width: 768px) {
+  .navbar-custom .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-custom .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .promo-bar {
+    font-size: 0.9rem;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  border-color: #1d3356;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#58729c, #324667);
+  border-radius: 100px;
+} 
 
 /* mainpage.css */
 
@@ -96,53 +152,6 @@
   }
 }
 
-/* header.css */
-
-.app-bar-header {
-  width: 100%;
-  background-color: #1d3356;
-  margin-bottom: 56px; /* Adjust based on navbar height */
-}
-
-.navbar-custom {
-  background-color: #1d3356;
-}
-
-.navbar-custom .navbar-brand,
-.navbar-custom .nav-link {
-  color: white !important;
-}
-
-.navbar-custom .nav-link {
-  margin-left: 0.5rem;
-}
-
-.navbar-custom .navbar-toggler {
-  border-color: white;
-}
-
-.navbar-custom .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%281, 1, 1, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.navbar-custom .download-link .btn {
-  color: white;
-  border-color: white;
-}
-
-@media (max-width: 768px) {
-  .navbar-custom .navbar-brand {
-    font-size: 1.2rem;
-  }
-
-  .navbar-custom .nav-link {
-    font-size: 0.9rem;
-  }
-
-  .promo-bar {
-    font-size: 0.9rem;
-  }
-}
 
 /* contact.css */
 
