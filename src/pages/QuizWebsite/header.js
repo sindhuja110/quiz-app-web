@@ -15,7 +15,7 @@ const AppBarHeader = () => {
               className="d-inline-block align-top"
               alt="Driftmark Technology logo"
             />
-            <span className="m-3">Quiz Time</span>
+            <span >Quiz Time</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
