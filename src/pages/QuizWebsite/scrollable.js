@@ -1,7 +1,7 @@
 // HorizontalScrollCarousel.js
 import React from 'react';
 import { Carousel, Container } from 'react-bootstrap';
-import main from '../../assets/images/mainimage.jpg';
+import main from '../../assets/images/kids.png';
 
 const HorizontalScrollCarousel = () => {
   return (

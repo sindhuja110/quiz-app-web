@@ -15,7 +15,7 @@ const defaultOptions = {
 
 const DownloadAppSection = () => {
   return (
-    <div>
+    <div className="mb-5">
       <Container className="mt-4 mb-4 download-page">
         <Row>
           <Col

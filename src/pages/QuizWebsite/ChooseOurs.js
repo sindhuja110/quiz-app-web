@@ -1,18 +1,40 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Chooseimage from "../../assets/images/companylogo.png";
+import Chooseimage from "../../assets/images/walkanime.json";
+import Lottie from "react-lottie";
 
 const WhyChooseOurs = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Chooseimage,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <div>
       <Container className="mt-5 mb-5 choose-page">
         <Row>
-          <Col xs={12} xl={6} sm={12} xxl={6} md={6} lg={6}>
-            <img
-              alt="main iname"
-              class="img-fluid animated zoomIn justify-content-end align-items-end"
-              data-wow-delay="0.5s"
-              src={Chooseimage}
+          <Col
+            xs={12}
+            xl={6}
+            sm={12}
+            xxl={6}
+            md={6}
+            lg={6}
+            className="d-flex justify-content-center align-items-center fade-in-up mt-4"
+            data-wow-delay="0.1s"
+          >
+            <Lottie
+              options={defaultOptions}
+              style={{
+                width: "100%",
+                height: "100%",
+                maxWidth: "500px",
+                maxHeight: "250px",
+              }}
             />
           </Col>
           <Col
