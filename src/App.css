@@ -191,8 +191,8 @@
 }
 
 
-.privacy-page h1, .privacy-page h2,
-.privacy-page h4 {
+.privacy-page h4, .privacy-page h2,
+.privacy-page h6 {
   margin-bottom: 20px;
   font-weight: bold;
   color: #FF6F61;

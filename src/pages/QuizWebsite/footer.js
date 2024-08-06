@@ -10,14 +10,14 @@ const Footer = () => {
     <footer className="footer d-flex flex-row justify-content-between">
       <Container>
         <Row className="d-flex flex-row justify-content-center align-items-center mt-3">
-          <Col md={3} className="footer-section border-right text-center">
+          <Col md={3} className="footer-section text-center">
             <img src={logoimage} alt="Driftmark Logo" className="logo" />
             <p>
               <strong>Driftmark Technology</strong>
             </p>
             <p>Where ideas become Digital Reality</p>
           </Col>
-          <Col md={2} className="footer-section border-right">
+          <Col md={2} className="footer-section ">
             <h4>Company</h4>
             <ul>
               <li>
@@ -49,7 +49,7 @@ const Footer = () => {
               </li>
             </ul>
           </Col>
-          <Col md={2} className="footer-section border-right">
+          <Col md={2} className="footer-section">
             <h4>Quiz App</h4>
             <ul>
               <li>
@@ -63,7 +63,7 @@ const Footer = () => {
               </li>
             </ul>
           </Col>
-          <Col md={2} className="footer-section border-right">
+          <Col md={2} className="footer-section">
             <h4>Get In Touch</h4>
             <ul>
               <li>
@@ -75,10 +75,13 @@ const Footer = () => {
             </ul>
           </Col>
           <Col md={2} className="footer-section last-section">
-          <a href="https://play.google.com/store/apps/details?id=" target='blank'>
-            <Button variant="outline-light" className="app-button">
-              Get the app
-            </Button>
+            <a
+              href="https://play.google.com/store/apps/details?id="
+              target="blank"
+            >
+              <Button variant="outline-light" className="app-button">
+                Get the app
+              </Button>
             </a>
             <br />
             <div className="social-icons">
