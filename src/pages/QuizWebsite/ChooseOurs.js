@@ -26,10 +26,10 @@ const WhyChooseOurs = () => {
             data-wow-delay="0.1s "
           >
             <div className="mb-4 pb-2">
-              <h1 className="mt-2 mt-4 ">
+              <h2 className="mt-2 mt-4 ">
                 <br />
                 Why Choose Us
-              </h1>
+              </h2>
             </div>
             <p className="mb-4" style={{ fontSize: "20px" }}>
               <b>QuizKid:</b> "Fun and Learning Combined - Engage your children

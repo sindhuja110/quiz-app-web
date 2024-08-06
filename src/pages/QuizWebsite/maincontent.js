@@ -6,17 +6,16 @@ import HomeImage from "../../assets/images/mainimage.jpg";
 const Maincontent = () => {
   return (
     <div className="bg-custom hero-header">
-      <Container>
+      <Container className="mt-5 mb-5">
         <Row>
           <Col xs={12} lg={6} className="text-center mt-5 ">
-            <h1
-              className="mb-4 animated zoomIn mt-5"
-              style={{ fontSize: "45px" }}
+            <h2
+              className="mb-4 mt-5"
             >
               Fun Learning
               <br /> Made Easy
-            </h1>
-            <p className="pb-3 animated zoomIn" style={{ fontSize: "20px" }}>
+            </h2>
+            <p className="pb-3 animated zoomIn" style={{ fontSize: "20px", color:'white' }}>
               "Discover a fun way to learn with our quiz app for kids. <br />
               Answer questions, earn rewards, and have lots of fun!"
             </p>

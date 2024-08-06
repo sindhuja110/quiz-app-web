@@ -7,7 +7,7 @@ const HorizontalScrollCarousel = () => {
   return (
     <div>
     <Container className="my-5 carousel " >
-      <h1 className="text-center mb-5 mt-5">Meet Your Child's Learning Partners</h1>
+      <h2 className="text-center mb-5 mt-5">Meet Your Child's Learning Partners</h2>
       <Carousel controls={false} indicators={false} interval={3000} pause={false}>
         <Carousel.Item>
           <div className="d-flex align-items-center justify-content-center carousel-content">

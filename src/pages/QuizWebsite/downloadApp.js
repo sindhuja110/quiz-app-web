@@ -29,11 +29,11 @@ const DownloadAppSection = () => {
             data-wow-delay="0.1s"
           >
             <div className="section-title position-relative mb-4 pb-2">
-              <h1 className="mt-2">
+              <h2 className="mt-2">
                 <br />
                 <br />
                 Download Our App
-              </h1>
+              </h2>
             </div>
             <p className="mb-4" style={{ fontSize: "20px" }}>
               Wherever you're going, we're right there with you
